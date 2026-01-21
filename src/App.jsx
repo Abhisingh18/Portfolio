@@ -14,9 +14,9 @@ function App() {
     <div className="bg-[#030014] text-white min-h-screen">
       <Navbar />
       <Hero />
+      <Experience />
       <Projects />
       <Services />
-      <Experience />
       <Achievements />
       <Skills />
       <About />

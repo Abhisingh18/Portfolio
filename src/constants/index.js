@@ -1,4 +1,16 @@
 import { Code, Database, Brain, Rocket } from "lucide-react";
+import trustFirstAiImage from "../assets/AI-copilots.jpg";
+import verticalAiImage from "../assets/Vertical.png";
+import iiscAssignmentImage from "../assets/iisc assignment.jpeg";
+import railwayImage from "../assets/iit-kgp Supply chian  Operation Reasearch.jpeg";
+import agricultureImage from "../assets/Agriculture.jpeg";
+import hunterAiImage from "../assets/HUnterai.png";
+import iiscInternImage from "../assets/iisc banglore.jpg";
+import iitHyderabadInternImage from "../assets/IIT-Hyderabad.jpg";
+import iitKgpInternImage from "../assets/iit kgp.jpg";
+import analyticsImage from "../assets/aanlytics.jpg";
+import cloudImage from "../assets/qauntum.png";
+
 
 export const PROFILE = {
     name: "Abhishek Singh",
@@ -16,6 +28,7 @@ export const EXPERIENCE = [
         role: "Quantum Machine Learning Intern",
         company: "IISc Bangalore",
         duration: "May 2025 - Present", // Assuming current or recent
+        image: iiscInternImage,
         description: [
             "Working on Quantum Neural Networks for optimization problems.",
             "Developing hybrid classical-quantum algorithms.",
@@ -26,6 +39,7 @@ export const EXPERIENCE = [
         role: "AI/ML Research Intern",
         company: "IIT Hyderabad",
         duration: "Jan 2024 - Apr 2024",
+        image: iitHyderabadInternImage,
         description: [
             "Researched on Advanced Computer Vision architectures.",
             "Optimized inference time for edge devices by 40%.",
@@ -36,6 +50,7 @@ export const EXPERIENCE = [
         role: "Optimization & Systems Project",
         company: "IIT Kharagpur",
         duration: "Aug 2023 - Dec 2023",
+        image: iitKgpInternImage,
         description: [
             "Worked on distributed systems optimization using AI.",
             "Implmented custom scheduling algorithms.",
@@ -52,7 +67,28 @@ export const PROJECTS = [
         techStack: ["Python", "Groq API", "FAISS", "React"],
         github: "https://github.com/Abhisingh18/Trust-first-AI-Copilot",
         demo: "#",
-        impact: "Reduces hallucinations by 90%"
+        impact: "Reduces hallucinations by 90%",
+        image: trustFirstAiImage
+    },
+    {
+        title: "Vertical.ai",
+        category: "GenAI Agents",
+        description: "Building the next generation of Vertical AI Agents for specialized workflows.",
+        techStack: ["GenAI", "React", "Python"],
+        github: "https://github.com/Abhisingh18/Vertical.ai",
+        demo: "#",
+        impact: "Specialized AI solutions",
+        image: verticalAiImage
+    },
+    {
+        title: "IISc Assignment",
+        category: "Quantum Computing",
+        description: "Quantum element classification and QML research assignment.",
+        techStack: ["QML", "Python", "Quantum Computing"],
+        github: "#", // User didn't provide specific link, keeping placeholder
+        demo: "#",
+        impact: "Research implementation",
+        image: iiscAssignmentImage
     },
     {
         title: "Railway Scheduling System (IIT KGP)",
@@ -61,34 +97,38 @@ export const PROJECTS = [
         techStack: ["Python", "Optimization Algos", "Data Analytics"],
         github: "https://github.com/Abhisingh18/Railway-Project-IIT-KGP",
         demo: "#",
-        impact: "Optimized scheduling logic for large-scale networks"
+        impact: "Optimized scheduling logic for large-scale networks",
+        image: railwayImage
     },
     {
         title: "AI-Powered RAG Disaster Analytics Platform",
         category: "AI & NLP",
-        description: "A real-time disaster management system using Retrieval-Augmented Generation for NDMA.",
+        description: "A real-time Disaster Management System using Retrieval-Augmented Generation for NDMA.",
         techStack: ["React", "Python", "LangChain", "Pinecone"],
-        github: "https://github.com/abhi-singh/rag-disaster",
+        github: "#",
         demo: "#",
-        impact: "Used by NDMA for real-time analysis"
+        impact: "Used by NDMA for real-time analysis",
+        image: analyticsImage
     },
     {
         title: "Advanced Cloud Workload Forecasting",
         category: "Time Series",
-        description: "Transformer-based model (TFE-GRU + Attention) to predict cloud resource usage.",
+        description: "Transformer-based model (TFT, GRU + Attention) to predict cloud resource usage.",
         techStack: ["PyTorch", "Transformers", "AWS"],
         github: "#",
         demo: "#",
-        impact: "95% accuracy in load prediction"
+        impact: "95% accuracy in load prediction",
+        image: cloudImage
     },
     {
-        title: "AI Cold Outreach Automation",
+        title: "Hunter AI (Cold Outreach)",
         category: "Automation",
         description: "Automated outreach system using LLMs to personalize emails at scale.",
         techStack: ["OpenAI API", "Celery", "Redis"],
         github: "#",
         demo: "#",
-        impact: "Increased response rate by 3x"
+        impact: "Increased response rate by 3x",
+        image: hunterAiImage
     },
     {
         title: "Smart Agriculture Monitoring",
@@ -97,7 +137,8 @@ export const PROJECTS = [
         techStack: ["Raspberry Pi", "TensorFlow Lite", "MQTT"],
         github: "#",
         demo: "#",
-        impact: "Deployed in 5 farms"
+        impact: "Deployed in 5 farms",
+        image: agricultureImage
     }
 ];
 

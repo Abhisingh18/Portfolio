@@ -46,6 +46,15 @@ const Experience = () => {
                                 <div className="glass p-8 rounded-2xl hover:border-cyan-500/30 transition-colors border border-white/10 relative group">
                                     <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                     <div className="relative z-10">
+                                        {exp.image && (
+                                            <div className="w-full h-40 mb-4 overflow-hidden rounded-lg">
+                                                <img
+                                                    src={exp.image}
+                                                    alt={exp.company}
+                                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
+                                        )}
                                         <h3 className="text-2xl font-bold text-white mb-1">{exp.role}</h3>
                                         <div className="flex items-center text-cyan-400 mb-4 font-medium">
                                             <Briefcase className="w-4 h-4 mr-2" />

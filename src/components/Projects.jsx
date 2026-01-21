@@ -19,7 +19,7 @@ const Projects = () => {
                     <div className="w-20 h-1 bg-emerald-500 mx-auto rounded-full"></div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {PROJECTS.map((project, index) => (
                         <motion.div
                             key={index}
@@ -42,6 +42,16 @@ const Projects = () => {
                                         <Code2 className="text-gray-500 group-hover:text-white transition-colors" />
                                     </div>
 
+                                    {project.image && (
+                                        <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                        </div>
+                                    )}
+
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-emerald-400 transition-all">
                                         {project.title}
                                     </h3>
@@ -50,19 +60,17 @@ const Projects = () => {
                                         {project.description}
                                     </p>
 
-                                    <div className="mb-6">
-                                        <p className="text-sm font-semibold text-gray-300 mb-2">Tech Stack:</p>
-                                        <div className="flex flex-wrap gap-2">
+                                    <div className="bg-white/5 border border-white/10 p-4 rounded-lg mb-6">
+                                        <div className="flex flex-wrap gap-2 mb-4">
                                             {project.techStack.map((tech, i) => (
-                                                <span key={i} className="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded border border-white/5">
+                                                <span key={i} className="text-xs text-gray-300 bg-white/5 px-2 py-1 rounded border border-white/10">
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
-                                    </div>
-
-                                    <div className="p-3 bg-white/5 rounded-lg mb-6 border-l-2 border-emerald-500">
-                                        <p className="text-sm text-gray-300 italic">"{project.impact}"</p>
+                                        <div className="pt-3 border-t border-white/10">
+                                            <p className="text-sm text-gray-400 italic">"{project.impact}"</p>
+                                        </div>
                                     </div>
                                 </div>
 
