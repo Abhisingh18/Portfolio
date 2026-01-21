@@ -85,7 +85,7 @@ export const PROJECTS = [
         category: "Quantum Computing",
         description: "Quantum element classification and QML research assignment.",
         techStack: ["QML", "Python", "Quantum Computing"],
-        github: "#", // User didn't provide specific link, keeping placeholder
+        github: "https://github.com/Abhisingh18/IISC-Assignment-1", // User provided link
         demo: "#",
         impact: "Research implementation",
         image: iiscAssignmentImage
@@ -105,7 +105,7 @@ export const PROJECTS = [
         category: "AI & NLP",
         description: "A real-time Disaster Management System using Retrieval-Augmented Generation for NDMA.",
         techStack: ["React", "Python", "LangChain", "Pinecone"],
-        github: "#",
+        github: "https://github.com/Abhisingh18/Rag-Model-For-DA",
         demo: "#",
         impact: "Used by NDMA for real-time analysis",
         image: analyticsImage
@@ -125,7 +125,7 @@ export const PROJECTS = [
         category: "Automation",
         description: "Automated outreach system using LLMs to personalize emails at scale.",
         techStack: ["OpenAI API", "Celery", "Redis"],
-        github: "#",
+        github: "https://github.com/Abhisingh18/HunterAI",
         demo: "#",
         impact: "Increased response rate by 3x",
         image: hunterAiImage
@@ -135,7 +135,7 @@ export const PROJECTS = [
         category: "IoT + AI",
         description: "IoT sensor network integrated with AI for crop disease detection.",
         techStack: ["Raspberry Pi", "TensorFlow Lite", "MQTT"],
-        github: "#",
+        github: "https://github.com/Abhisingh18/AGRISMART",
         demo: "#",
         impact: "Deployed in 5 farms",
         image: agricultureImage
