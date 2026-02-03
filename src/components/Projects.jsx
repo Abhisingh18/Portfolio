@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Code2 } from "lucide-react";
+import { Github, ExternalLink, Code2, X } from "lucide-react";
 import { PROJECTS } from "../constants";
+import { useState } from "react";
 
 const Projects = () => {
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
     return (
         <section id="projects" className="py-20 bg-[#030014] relative">
             <div className="max-w-7xl mx-auto px-6">
@@ -42,7 +45,7 @@ const Projects = () => {
                                         <Code2 className="text-gray-500 group-hover:text-white transition-colors" />
                                     </div>
 
-                                    {project.image && (
+                                    {project.image ? (
                                         <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
                                             <img
                                                 src={project.image}
@@ -50,7 +53,18 @@ const Projects = () => {
                                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                             />
                                         </div>
-                                    )}
+                                    ) : project.video ? (
+                                        <div className="w-full h-48 mb-4 overflow-hidden rounded-lg bg-black/50 border border-white/10">
+                                            <video
+                                                src={project.video}
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                                            />
+                                        </div>
+                                    ) : null}
 
                                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-emerald-400 transition-all">
                                         {project.title}
@@ -81,17 +95,46 @@ const Projects = () => {
                                     >
                                         <Github size={16} /> GitHub
                                     </a>
-                                    <a
-                                        href={project.demo}
-                                        className="flex items-center gap-2 text-sm text-[#030014] bg-emerald-400 px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors font-semibold"
-                                    >
-                                        <ExternalLink size={16} /> Live Demo
-                                    </a>
+                                    {project.video ? (
+                                        <button
+                                            onClick={() => setSelectedVideo(project.video)}
+                                            className="flex items-center gap-2 text-sm text-[#030014] bg-emerald-400 px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors font-semibold cursor-pointer"
+                                        >
+                                            <ExternalLink size={16} /> Live Demo
+                                        </button>
+                                    ) : (
+                                        <a
+                                            href={project.demo}
+                                            className="flex items-center gap-2 text-sm text-[#030014] bg-emerald-400 px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors font-semibold"
+                                        >
+                                            <ExternalLink size={16} /> Live Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Video Modal */}
+                {selectedVideo && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedVideo(null)}>
+                        <div className="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+                            <button
+                                onClick={() => setSelectedVideo(null)}
+                                className="absolute top-4 right-4 text-white hover:text-red-400 z-10 p-2 bg-black/50 rounded-full transition-colors"
+                            >
+                                <X size={24} />
+                            </button>
+                            <video
+                                src={selectedVideo}
+                                controls
+                                autoPlay
+                                className="w-full h-auto max-h-[80vh]"
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );

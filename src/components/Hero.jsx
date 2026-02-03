@@ -53,7 +53,7 @@ const Hero = () => {
                         </Link>
 
                         <a
-                            href="/Abhi singh Resume-iisc.pdf"
+                            href="/Abhi singh IISc Resume.pdf"
                             target="_blank"
                             className="px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer"
                         >
