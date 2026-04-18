@@ -15,6 +15,8 @@ import iitKgpInternImage from "../assets/iit kgp.jpg";
 import analyticsImage from "../assets/aanlytics.jpg";
 import cloudImage from "../assets/qauntum.png";
 import peopleDetectionImage from "../assets/AI people Detection.png";
+import crowdIntelligenceVideo from "../assets/Crowd Intelligence System.webm";
+import dodgeAiVideo from "../assets/Dodge Proto.webm";
 
 
 export const PROFILE = {
@@ -32,7 +34,7 @@ export const EXPERIENCE = [
     {
         role: "Quantum Machine Learning Intern",
         company: "IISc Bangalore",
-        duration: "May 2025 - Present", // Assuming current or recent
+        duration: "December 2025 - Present", // Assuming current or recent
         image: iiscInternImage,
         description: [
             "Working on Quantum Neural Networks for optimization problems.",
@@ -87,6 +89,28 @@ export const PROJECTS = [
         image: agricultureImage
     },
     {
+        title: "Crowd Intelligence OS",
+        category: "Computer Vision & OS",
+        description: "AI-powered crowd intelligence OS for tracking pedestrians, estimating flow density, calculating dwell times, and analyzing spatial direction matrices in real-time. Designed for robust crowd density calculation in intense scenarios like the Shibuya Scramble Crossing.",
+        techStack: ["YOLOv8", "FastAPI", "React", "Recharts"],
+        github: "https://github.com/Abhisingh18/Crowd-Intelligence",
+        demo: "https://crowd-intelligence-l58l.vercel.app/",
+        impact: "Production-ready Crowd Intelligence OS",
+        image: null,
+        video: crowdIntelligenceVideo
+    },
+    {
+        title: "Dodge AI ERP Copilot",
+        category: "Enterprise AI & ERP",
+        description: "AI-powered ERP analytics tool that traces Order-to-Cash (O2C) processes. It converts natural language queries into SQL, executes them on SAP data, and visualizes workflows with interactive Cytoscape graphs.",
+        techStack: ["FastAPI", "React", "Cytoscape.js", "SQL"],
+        github: "https://github.com/Abhisingh18/Dodge-AI-ERP-Copilot",
+        demo: "https://dodge-ai-erp-copilot-xcju.vercel.app/",
+        impact: "Visual O2C Analytics with AI Explanations",
+        image: null,
+        video: dodgeAiVideo
+    },
+    {
         title: "Hunter AI (Cold Outreach)",
         category: "Automation",
         description: "Automated outreach system using LLMs to personalize emails at scale.",
@@ -129,17 +153,6 @@ export const PROJECTS = [
         image: trustFirstAiImage
     },
     {
-        title: "IISc Assignment",
-        category: "Quantum Computing",
-        description: "Quantum element classification and QML research assignment.",
-        techStack: ["QML", "Python", "Quantum Computing"],
-        github: "https://github.com/Abhisingh18/IISC-Assignment-1", // User provided link
-        demo: "#",
-        impact: "Research implementation",
-        image: iiscAssignmentImage,
-        video: assignmentVideo
-    },
-    {
         title: "AI-Powered RAG Disaster Analytics Platform",
         category: "AI & NLP",
         description: "A real-time Disaster Management System using Retrieval-Augmented Generation for NDMA.",
@@ -159,16 +172,6 @@ export const PROJECTS = [
         impact: "95% accuracy in load prediction",
         image: cloudImage
     },
-    {
-        title: "People detection from Image & Video",
-        category: "Computer Vision",
-        description: "Real-time people detection and counting in images and video streams.",
-        techStack: ["Python", "YOLO", "OpenCV"],
-        github: "https://github.com/Abhisingh18/People-Detection-in-Image-Video--SIH-253-Feature",
-        demo: "https://people-detection-in-image-video-sih.vercel.app/",
-        impact: "Hackathon Feature Implementation",
-        image: peopleDetectionImage
-    }
 ];
 
 export const SKILLS = [
