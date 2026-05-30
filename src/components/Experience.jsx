@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Github, Play } from "lucide-react";
 import { EXPERIENCE } from "../constants";
 
 const Experience = () => {
@@ -19,7 +19,7 @@ const Experience = () => {
                     <div className="w-20 h-1 bg-cyan-500 mx-auto rounded-full"></div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-4 gap-4 max-w-7xl mx-auto">
                     {EXPERIENCE.map((exp, index) => (
                         <motion.div
                             key={index}
@@ -29,11 +29,29 @@ const Experience = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group"
                         >
-                            <div className="glass p-8 rounded-2xl hover:border-cyan-500/30 transition-all duration-300 border border-white/10 relative h-full flex flex-col">
+                            <div className="glass p-4 rounded-2xl hover:border-cyan-500/30 transition-all duration-300 border border-white/10 relative h-full flex flex-col">
                                 <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute inset-0 flex items-start justify-center pt-4 z-20 pointer-events-none">
+                                    <div className="flex gap-5">
+                                        {exp.logo && (
+                                            <img
+                                                src={exp.logo}
+                                                alt="logo"
+                                                className="w-28 h-28 rounded-full border border-white/20"
+                                            />
+                                        )}
+                                        {exp.logo2 && (
+                                            <img
+                                                src={exp.logo2}
+                                                alt="logo2"
+                                                className="w-28 h-28 rounded-full border border-white/20"
+                                            />
+                                        )}
+                                    </div>
+                                </div>
                                 <div className="relative z-10 flex flex-col h-full">
                                     {exp.image && (
-                                        <div className="w-full h-48 mb-6 overflow-hidden rounded-xl bg-black/20">
+                                        <div className="w-full h-32 mb-4 overflow-hidden rounded-xl bg-black/20">
                                             <img
                                                 src={exp.image}
                                                 alt={exp.company}
@@ -49,6 +67,11 @@ const Experience = () => {
                                             <Briefcase className="w-4 h-4 mr-2" />
                                             {exp.company}
                                         </div>
+                                        {exp.professor && (
+                                            <p className="text-gray-400 text-sm mt-1">
+                                                {exp.professor}
+                                            </p>
+                                        )}
                                     </div>
                                     
                                     <ul className="space-y-3 mb-6 flex-grow">
@@ -61,9 +84,35 @@ const Experience = () => {
                                     </ul>
                                     
                                     <div className="pt-4 border-t border-white/10 mt-auto">
-                                        <span className="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                                            {exp.duration}
-                                        </span>
+                                        <div className="mb-3">
+                                            <span className="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                                                {exp.duration}
+                                            </span>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            {exp.github && exp.github !== "#" && (
+                                                <a
+                                                    href={exp.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
+                                                >
+                                                    <Github className="w-3 h-3" />
+                                                    GitHub
+                                                </a>
+                                            )}
+                                            {exp.video && (
+                                                <a
+                                                    href={exp.video}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
+                                                >
+                                                    <Play className="w-3 h-3" />
+                                                    Video
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

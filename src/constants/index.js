@@ -8,6 +8,7 @@ import assignmentVideo from "../assets/Assignment.mp4";
 import iiscAssignmentImage from "../assets/iisc assignment.jpeg";
 import railwayImage from "../assets/iit-kgp Supply chian  Operation Reasearch.jpeg";
 import agricultureImage from "../assets/Agriculture.jpeg";
+import vidyaImage from "../assets/Vidya.png";
 import hunterAiImage from "../assets/HUnterai.png";
 import iiscInternImage from "../assets/iisc banglore.jpg";
 import iitHyderabadInternImage from "../assets/IIT-Hyderabad.jpg";
@@ -17,6 +18,12 @@ import cloudImage from "../assets/qauntum.png";
 import peopleDetectionImage from "../assets/AI people Detection.png";
 import crowdIntelligenceVideo from "../assets/Crowd Intelligence System.webm";
 import dodgeAiVideo from "../assets/Dodge Proto.webm";
+import springLabImage from "../assets/spring_lab_iit_madras_cover.jpg";
+import iitmLogo from "../assets/IITM LOGO.png";
+import iitmLogoCircle from "../assets/IITM_LOGO_circle.png";
+import tanuhLogoCircle from "../assets/tanuh_logo_circle.png";
+import iiscLogoCircle from "../assets/iisc_logo_circle.png";
+import iithLogoCircle from "../assets/iith_logo_circle.png";
 
 
 export const PROFILE = {
@@ -32,41 +39,52 @@ export const PROFILE = {
 
 export const EXPERIENCE = [
     {
+        role: "Project Staff",
+        company: "Spring Lab IIT Madras",
+        duration: "May 26 - Present",
+        image: springLabImage,
+        logo: iitmLogoCircle,
+        github: "#",
+        video: null,
+        description: []
+    },
+    {
         role: "Quantum Machine Learning Intern",
         company: "IISc Bangalore",
-        duration: "December 2025 - Present", // Assuming current or recent
+        duration: "December 2025 - May 2026",
         image: iiscInternImage,
-        description: [
-            "Working on Quantum Neural Networks for optimization problems.",
-            "Developing hybrid classical-quantum algorithms.",
-            "Collaborating with research team on QML publications."
-        ]
+        logo: iiscLogoCircle,
+        logo2: tanuhLogoCircle,
+        description: []
     },
     {
         role: "AI/ML Research Intern",
         company: "IIT Hyderabad",
-        duration: "Jan 2024 - Apr 2024",
+        duration: "May 2025 - June 2025",
         image: iitHyderabadInternImage,
-        description: [
-            "Researched on Advanced Computer Vision architectures.",
-            "Optimized inference time for edge devices by 40%.",
-            "Published findings in student research symposium."
-        ]
+        logo: iithLogoCircle,
+        description: []
     },
     {
         role: "Optimization & Systems Project",
         company: "IIT Kharagpur",
-        duration: "Aug 2023 - Dec 2023",
+        duration: "Aug 2024 - Sep 2024",
         image: iitKgpInternImage,
-        description: [
-            "Worked on distributed systems optimization using AI.",
-            "Implmented custom scheduling algorithms.",
-            "Reduced system latency by 25%."
-        ]
+        description: []
     }
 ];
 
 export const PROJECTS = [
+    {
+        title: "Vidya AI",
+        category: "EdTech AI",
+        description: "Professional animated teacher videos in 22 Indian languages. AI-powered personalized learning tailored to your grade, on demand. 100% free, no credit card required.",
+        techStack: ["AI", "EdTech", "Multi-language"],
+        github: "https://github.com/Abhisingh18/Vidya-AI",
+        demo: "https://vidya-ai.vercel.app",
+        impact: "AI learning in 22 Indian languages",
+        image: vidyaImage
+    },
     {
         title: "Vertical.ai",
         category: "GenAI Agents",
@@ -111,6 +129,17 @@ export const PROJECTS = [
         video: dodgeAiVideo
     },
     {
+        title: "Mantis Basic (Cognitive Cartography)",
+        category: "Cognitive Maps",
+        description: "A basic version of Mantis for cognitive cartography and spatial reasoning.",
+        techStack: ["Python", "AI", "Mapping"],
+        github: "https://github.com/Abhisingh18/Mantis-Basic-Version-of-Cognitive-Cartography-",
+        demo: "#",
+        impact: "Spatial Reasoning Prototype",
+        image: null,
+        video: mantisVideo
+    },
+    {
         title: "Hunter AI (Cold Outreach)",
         category: "Automation",
         description: "Automated outreach system using LLMs to personalize emails at scale.",
@@ -130,17 +159,6 @@ export const PROJECTS = [
         demo: "https://railway-project-iit-kgp.onrender.com/",
         impact: "Optimized scheduling logic for large-scale networks",
         image: railwayImage
-    },
-    {
-        title: "Mantis Basic (Cognitive Cartography)",
-        category: "Cognitive Maps",
-        description: "A basic version of Mantis for cognitive cartography and spatial reasoning.",
-        techStack: ["Python", "AI", "Mapping"],
-        github: "https://github.com/Abhisingh18/Mantis-Basic-Version-of-Cognitive-Cartography-",
-        demo: "#",
-        impact: "Spatial Reasoning Prototype",
-        image: null,
-        video: mantisVideo
     },
     {
         title: "Trust-First AI Copilot",
