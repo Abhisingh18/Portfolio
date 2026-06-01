@@ -81,7 +81,7 @@ export const PROJECTS = [
         description: "Professional animated teacher videos in 22 Indian languages. AI-powered personalized learning tailored to your grade, on demand. 100% free, no credit card required.",
         techStack: ["AI", "EdTech", "Multi-language"],
         github: "https://github.com/Abhisingh18/Vidya-AI",
-        demo: "https://vidya-ai.vercel.app",
+        demo: "https://vidya-ai-git-main-abhishek-singhs-projects-3b6a3ace.vercel.app/",
         impact: "AI learning in 22 Indian languages",
         image: vidyaImage
     },
