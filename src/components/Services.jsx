@@ -1,61 +1,65 @@
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import { ArrowRight } from "lucide-react";
+import { Section, SectionHeading } from "./ui/Section";
+import { fadeUp } from "../lib/motion";
 import { SERVICES } from "../constants";
 
-const Services = () => {
-    return (
-        <section id="services" className="py-20 bg-[#030014] relative">
-            <div className="max-w-7xl mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white">
-                        My <span className="text-gradient">Services</span>
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        Helping startups and businesses leverage AI for growth and efficiency.
-                    </p>
-                </motion.div>
+const Services = () => (
+    <Section id="services">
+        <SectionHeading
+            eyebrow="Consulting"
+            title="How I Can"
+            accent="Help"
+            subtitle="Available for contract and consulting work with startups and research teams."
+        />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {SERVICES.map((service, index) => {
-                        const Icon = service.icon;
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="group p-6 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-cyan-500/50 transition-colors relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <Icon size={100} className="text-cyan-500" />
-                                </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                    <motion.div
+                        key={service.title}
+                        {...fadeUp(index)}
+                        className="group card overflow-hidden p-6 hover:border-cyan-500/40"
+                    >
+                        <Icon
+                            size={96}
+                            aria-hidden="true"
+                            className="pointer-events-none absolute -right-4 -top-4 text-white/[0.03] transition-colors duration-500 group-hover:text-cyan-500/10"
+                        />
 
-                                <div className="relative z-10">
-                                    <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
-                                        <Icon size={32} className="text-cyan-400" />
-                                    </div>
+                        <div className="relative">
+                            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 transition-colors group-hover:bg-cyan-500/20">
+                                <Icon size={24} className="text-cyan-400" aria-hidden="true" />
+                            </div>
 
-                                    <h3 className="text-xl font-bold text-white mb-3">
-                                        {service.title}
-                                    </h3>
+                            <h3 className="mb-2 text-base font-bold text-white">
+                                {service.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed text-gray-400">
+                                {service.description}
+                            </p>
+                        </div>
+                    </motion.div>
+                );
+            })}
+        </div>
 
-                                    <p className="text-gray-400 text-sm leading-relaxed">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-            </div>
-        </section>
-    );
-};
+        <motion.div {...fadeUp(4)} className="mt-12 text-center">
+            <Link
+                to="contact"
+                smooth
+                duration={500}
+                offset={-80}
+                tabIndex={0}
+                className="btn-ghost cursor-pointer px-7 py-3 text-sm"
+            >
+                Discuss a project
+                <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+        </motion.div>
+    </Section>
+);
 
 export default Services;

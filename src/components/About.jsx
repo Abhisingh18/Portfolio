@@ -1,74 +1,97 @@
 import { motion } from "framer-motion";
-import { Brain, Cpu, Globe } from "lucide-react";
+import { Brain, Cpu, Globe, GraduationCap } from "lucide-react";
+import { Section, SectionHeading } from "./ui/Section";
+import { fadeUp } from "../lib/motion";
+import { EDUCATION, PROFILE } from "../constants";
 
-const About = () => {
-    return (
-        <section id="about" className="py-20 bg-[#030014] relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white">
-                        About <span className="text-gradient">Me</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-purple-500 mx-auto rounded-full"></div>
-                </motion.div>
+const highlights = [
+    {
+        icon: Brain,
+        title: "Research",
+        body: "Forecasting architectures and quantum ML at IISc; perception and sensor fusion at IIT Hyderabad.",
+        color: "text-purple-400",
+    },
+    {
+        icon: Cpu,
+        title: "Engineering",
+        body: "RAG pipelines, FastAPI services and vision models taken from notebook to deployed product.",
+        color: "text-cyan-400",
+    },
+    {
+        icon: Globe,
+        title: "Impact",
+        body: "Systems built for agriculture, disaster response, enterprise ERP and Indian-language education.",
+        color: "text-emerald-400",
+    },
+];
 
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="relative group">
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                            <div className="relative bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 leading-relaxed text-gray-300 text-lg">
-                                <p className="mb-6">
-                                    I am a research-oriented <span className="text-white font-semibold">AI/ML Engineer</span> and <span className="text-white font-semibold">Hackathon Winner</span> with a passion for building scalable intelligent systems.
-                                </p>
-                                <p className="mb-6">
-                                    My expertise spans across <span className="text-purple-400">Generative AI</span>, <span className="text-purple-400">Computer Vision</span>, and <span className="text-purple-400">IoT</span>. I focus not just on models, but on creating real-world impact through efficient optimization and deployment.
-                                </p>
-                                <p>
-                                    Currently optimizing Quantum Machine Learning algorithms at <span className="text-white font-semibold">IISc Bangalore</span>.
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
+const About = () => (
+    <Section id="about">
+        <SectionHeading eyebrow="Introduction" title="About" accent="Me" />
 
-                    {/* Cards */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-                    >
-                        <div className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors backdrop-blur-sm">
-                            <Brain className="text-purple-400 mb-4 w-10 h-10" />
-                            <h3 className="text-xl font-bold text-white mb-2">Research</h3>
-                            <p className="text-gray-400 text-sm">Working on cutting-edge algorithms in QML & Computer Vision.</p>
+        <div className="grid items-start gap-8 lg:grid-cols-5">
+            <motion.div {...fadeUp(0)} className="lg:col-span-3">
+                <div className="card p-8 md:p-10">
+                    <div className="space-y-5 text-base leading-relaxed text-gray-300 md:text-lg">
+                        <p>{PROFILE.shortBio}</p>
+                        <p>
+                            My work sits between research and production. At{" "}
+                            <span className="font-semibold text-white">IISc Bangalore</span>{" "}
+                            I designed a residual GRU architecture that cut forecasting
+                            error by up to{" "}
+                            <span className="font-semibold text-purple-300">73%</span>{" "}
+                            against established baselines, while keeping training inside a
+                            2 GB memory budget. At{" "}
+                            <span className="font-semibold text-white">IIT Hyderabad</span>{" "}
+                            I built autonomous-driving perception that held{" "}
+                            <span className="font-semibold text-purple-300">92%</span>{" "}
+                            detection accuracy across lighting conditions.
+                        </p>
+                        <p>
+                            Alongside research I ship products — RAG platforms, computer-vision
+                            services and LLM automation — and I have won{" "}
+                            <span className="font-semibold text-white">
+                                five national hackathons
+                            </span>{" "}
+                            building them under deadline.
+                        </p>
+                    </div>
+
+                    <div className="mt-8 flex items-start gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-5">
+                        <GraduationCap
+                            className="mt-0.5 h-5 w-5 shrink-0 text-purple-400"
+                            aria-hidden="true"
+                        />
+                        <div className="min-w-0">
+                            <h3 className="text-sm font-semibold text-white">
+                                {EDUCATION.degree}
+                            </h3>
+                            <p className="mt-1 text-sm text-gray-400">
+                                {EDUCATION.institution} · {EDUCATION.location}
+                            </p>
+                            <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
+                                <span>{EDUCATION.duration}</span>
+                                <span aria-hidden="true">·</span>
+                                <span className="font-medium text-purple-300">
+                                    {EDUCATION.grade}
+                                </span>
+                            </p>
                         </div>
-                        <div className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
-                            <Cpu className="text-cyan-400 mb-4 w-10 h-10" />
-                            <h3 className="text-xl font-bold text-white mb-2">Engineering</h3>
-                            <p className="text-gray-400 text-sm">Building scalable RAG systems and deploying models to production.</p>
-                        </div>
-                        <div className="sm:col-span-2 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-500/50 transition-colors backdrop-blur-sm">
-                            <Globe className="text-emerald-400 mb-4 w-10 h-10" />
-                            <h3 className="text-xl font-bold text-white mb-2">Impact</h3>
-                            <p className="text-gray-400 text-sm">Solved real-world problems for NDMA and Agricultural sectors.</p>
-                        </div>
-                    </motion.div>
+                    </div>
                 </div>
-            </div>
-        </section>
-    );
-};
+            </motion.div>
+
+            <motion.div {...fadeUp(1)} className="grid gap-5 lg:col-span-2">
+                {highlights.map(({ icon: Icon, title, body, color }) => (
+                    <div key={title} className="card p-6">
+                        <Icon className={`mb-4 h-8 w-8 ${color}`} aria-hidden="true" />
+                        <h3 className="mb-2 text-lg font-bold text-white">{title}</h3>
+                        <p className="text-sm leading-relaxed text-gray-400">{body}</p>
+                    </div>
+                ))}
+            </motion.div>
+        </div>
+    </Section>
+);
 
 export default About;

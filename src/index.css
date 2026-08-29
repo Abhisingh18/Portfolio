@@ -3,39 +3,127 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-[#030014] text-gray-100 antialiased font-sans selection:bg-purple-500 selection:text-white;
+  :root {
+    --bg: #030014;
+    --bg-elevated: #0a0618;
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #a855f7;
+    --accent-2: #22d3ee;
   }
-  
+
   html {
     scroll-behavior: smooth;
+    /* Keeps anchored sections clear of the fixed navbar. */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-background text-gray-100 antialiased font-sans;
+    @apply selection:bg-purple-500/40 selection:text-white;
+  }
+
+  /* One visible focus treatment everywhere, instead of none. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-purple-400 ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-tight text-balance;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  }
+
+  .card {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+    @apply transition-colors duration-300 hover:border-white/20;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5;
+    @apply px-2.5 py-1 text-[11px] font-medium text-gray-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold;
+    @apply transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-purple-600 to-cyan-500 text-white;
+    @apply shadow-lg shadow-purple-900/40 hover:brightness-110 hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 bg-white/[0.04] text-gray-100;
+    @apply hover:bg-white/10 hover:border-white/25;
+  }
+
+  /* Skip link — visible only once it takes focus. */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100];
+    @apply focus:rounded-lg focus:bg-purple-600 focus:px-4 focus:py-2 focus:text-white;
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
-  }
-  
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-cyan-500 to-emerald-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Fades a scrolling row out at its edges instead of cutting it off. */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030014; 
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a; 
-  border-radius: 4px;
+  background: #2a2440;
+  border: 2px solid var(--bg);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4a4a4a; 
+  background: #453a66;
+}
+
+/* Respect the OS-level "reduce motion" setting: the site still works,
+   it just stops moving. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

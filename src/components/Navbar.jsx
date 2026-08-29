@@ -1,106 +1,145 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { Link } from "react-scroll";
-
-const navLinks = [
-    { name: "About", to: "about" },
-    { name: "Experience", to: "experience" },
-    { name: "Projects", to: "projects" },
-    { name: "Services", to: "services" },
-    { name: "Contact", to: "contact" },
-];
+import { NAV_LINKS, PROFILE } from "../constants";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [active, setActive] = useState("");
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    // Lock body scroll while the mobile sheet is open.
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
         };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+    }, [isOpen]);
+
+    // Close the mobile sheet on Escape.
+    useEffect(() => {
+        const onKey = (e) => e.key === "Escape" && setIsOpen(false);
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
     }, []);
 
     return (
-        <nav
-            className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/80 glass shadow-lg py-4" : "bg-transparent py-6"
-                }`}
+        <header
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+                scrolled
+                    ? "border-b border-white/10 bg-background/70 py-3 backdrop-blur-xl"
+                    : "border-b border-transparent py-5"
+            }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <nav
+                aria-label="Primary"
+                className="mx-auto flex max-w-7xl items-center justify-between px-6"
+            >
                 <Link
                     to="hero"
-                    smooth={true}
-                    className="text-2xl font-bold font-heading cursor-pointer tracking-tighter"
+                    smooth
+                    duration={500}
+                    tabIndex={0}
+                    className="cursor-pointer text-lg font-bold tracking-tight text-white md:text-xl"
                 >
                     Abhishek Singh<span className="text-purple-500">.</span>
                 </Link>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex space-x-8 items-center">
-                    {navLinks.map((link) => (
+                <div className="hidden items-center gap-1 md:flex">
+                    {NAV_LINKS.map((link) => (
                         <Link
-                            key={link.name}
+                            key={link.to}
                             to={link.to}
-                            smooth={true}
-                            offset={-80}
-                            className="text-gray-300 hover:text-white cursor-pointer text-sm font-medium transition-colors"
+                            smooth
+                            spy
+                            duration={500}
+                            offset={-90}
+                            tabIndex={0}
+                            onSetActive={() => setActive(link.to)}
+                            className={`relative cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                                active === link.to
+                                    ? "text-white"
+                                    : "text-gray-400 hover:text-white"
+                            }`}
                         >
-                            {link.name}
+                            {active === link.to && (
+                                <motion.span
+                                    layoutId="nav-pill"
+                                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    className="absolute inset-0 rounded-full bg-white/10"
+                                />
+                            )}
+                            <span className="relative z-10">{link.name}</span>
                         </Link>
                     ))}
+
                     <a
-                        href="/Abhi singh Resume-iisc.pdf"
+                        href={PROFILE.resume}
                         target="_blank"
-                        className="px-5 py-2 rounded-full border border-purple-500/50 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-sm font-semibold"
+                        rel="noopener noreferrer"
+                        className="btn-ghost ml-3 px-5 py-2 text-sm"
                     >
-                        Resume
+                        <FileText size={15} aria-hidden="true" />
+                        Résumé
                     </a>
                 </div>
 
-                {/* Mobile Toggle */}
-                <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
-                </div>
-            </div>
+                <button
+                    onClick={() => setIsOpen((v) => !v)}
+                    aria-label={isOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isOpen}
+                    className="rounded-lg p-2 text-white md:hidden"
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+            </nav>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-[#030014] border-b border-white/10 overflow-hidden"
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden border-b border-white/10 bg-background/95 backdrop-blur-xl md:hidden"
                     >
-                        <div className="flex flex-col items-center py-6 space-y-6">
-                            {navLinks.map((link) => (
+                        <div className="flex flex-col gap-1 px-6 py-6">
+                            {NAV_LINKS.map((link) => (
                                 <Link
-                                    key={link.name}
+                                    key={link.to}
                                     to={link.to}
-                                    smooth={true}
+                                    smooth
+                                    duration={500}
                                     offset={-80}
+                                    tabIndex={0}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-gray-300 text-lg hover:text-white cursor-pointer"
+                                    className="cursor-pointer rounded-lg px-4 py-3 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
                                 >
                                     {link.name}
                                 </Link>
                             ))}
                             <a
-                                href="/Abhi singh Resume-iisc.pdf"
+                                href={PROFILE.resume}
                                 target="_blank"
-                                className="px-6 py-2 rounded-full bg-purple-600 text-white font-semibold"
+                                rel="noopener noreferrer"
+                                className="btn-primary mt-3 px-6 py-3 text-sm"
                             >
-                                Resume
+                                <FileText size={16} aria-hidden="true" />
+                                Download Résumé
                             </a>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </header>
     );
 };
 

@@ -1,228 +1,31 @@
-import { Code, Database, Brain, Rocket } from "lucide-react";
+import {
+    Brain,
+    Code,
+    Database,
+    Rocket,
+    Github,
+    Linkedin,
+    Mail,
+    Terminal,
+    Code2,
+} from "lucide-react";
+
 import trustFirstAiImage from "../assets/AI-copilots.jpg";
-import verticalAiImage from "../assets/Vertical.png";
-import verticalAiVideo from "../assets/Vertical ai prototype video.mp4";
-import hunterAiVideo from "../assets/HUNTER AI.mp4";
-import mantisVideo from "../assets/Mantis video.mp4";
-import assignmentVideo from "../assets/Assignment.mp4";
-import iiscAssignmentImage from "../assets/iisc assignment.jpeg";
+import verticalAiImage from "../assets/Vertical.jpg";
 import railwayImage from "../assets/iit-kgp Supply chian  Operation Reasearch.jpeg";
 import agricultureImage from "../assets/Agriculture.jpeg";
-import vidyaImage from "../assets/Vidya.png";
-import hunterAiImage from "../assets/HUnterai.png";
+import vidyaImage from "../assets/Vidya.jpg";
+import hunterAiImage from "../assets/HUnterai.jpg";
 import iiscInternImage from "../assets/iisc banglore.jpg";
 import iitHyderabadInternImage from "../assets/IIT-Hyderabad.jpg";
 import iitKgpInternImage from "../assets/iit kgp.jpg";
 import analyticsImage from "../assets/aanlytics.jpg";
-import cloudImage from "../assets/qauntum.png";
-import peopleDetectionImage from "../assets/AI people Detection.png";
-import crowdIntelligenceVideo from "../assets/Crowd Intelligence System.webm";
-import dodgeAiVideo from "../assets/Dodge Proto.webm";
+import cloudImage from "../assets/qauntum.jpg";
 import springLabImage from "../assets/spring_lab_iit_madras_cover.jpg";
-import iitmLogo from "../assets/IITM LOGO.png";
 import iitmLogoCircle from "../assets/IITM_LOGO_circle.png";
 import tanuhLogoCircle from "../assets/tanuh_logo_circle.png";
 import iiscLogoCircle from "../assets/iisc_logo_circle.png";
 import iithLogoCircle from "../assets/iith_logo_circle.png";
-
-
-export const PROFILE = {
-    name: "Abhishek Singh",
-    roles: ["AI/ML Engineer", "Research Intern", "AI Consultant"],
-    shortBio: "Research-driven AI Engineer building scalable intelligent systems. Passionate about LLMs, Computer Vision, and Solving Real-World Problems.",
-    email: "abhishek@example.com",
-    linkedin: "https://www.linkedin.com/in/abhishek-singh-ai-ml/", // Placeholder
-    github: "https://github.com/abhishek-singh-ai", // Placeholder
-    geeksforgeeks: "https://www.geeksforgeeks.org/profile/abhi9648k838?tab=activity",
-    leetcode: "https://leetcode.com/u/Abhi-singh_9648/"
-};
-
-export const EXPERIENCE = [
-    {
-        role: "Project Staff",
-        company: "Spring Lab IIT Madras",
-        duration: "May 26 - Present",
-        image: springLabImage,
-        logo: iitmLogoCircle,
-        github: "#",
-        video: null,
-        description: []
-    },
-    {
-        role: "Quantum Machine Learning Intern",
-        company: "IISc Bangalore",
-        duration: "December 2025 - May 2026",
-        image: iiscInternImage,
-        logo: iiscLogoCircle,
-        logo2: tanuhLogoCircle,
-        description: []
-    },
-    {
-        role: "AI/ML Research Intern",
-        company: "IIT Hyderabad",
-        duration: "May 2025 - June 2025",
-        image: iitHyderabadInternImage,
-        logo: iithLogoCircle,
-        description: []
-    },
-    {
-        role: "Optimization & Systems Project",
-        company: "IIT Kharagpur",
-        duration: "Aug 2024 - Sep 2024",
-        image: iitKgpInternImage,
-        description: []
-    }
-];
-
-export const PROJECTS = [
-    {
-        title: "Vidya AI",
-        category: "EdTech AI",
-        description: "Professional animated teacher videos in 22 Indian languages. AI-powered personalized learning tailored to your grade, on demand. 100% free, no credit card required.",
-        techStack: ["AI", "EdTech", "Multi-language"],
-        github: "https://github.com/Abhisingh18/Vidya-AI",
-        demo: "https://vidya-ai-git-main-abhishek-singhs-projects-3b6a3ace.vercel.app/",
-        impact: "AI learning in 22 Indian languages",
-        image: vidyaImage
-    },
-    {
-        title: "Vertical.ai",
-        category: "GenAI Agents",
-        description: "Building the next generation of Vertical AI Agents for specialized workflows.",
-        techStack: ["GenAI", "React", "Python"],
-        github: "https://github.com/Abhisingh18/Vertical.ai",
-        demo: "#",
-        impact: "Specialized AI solutions",
-        image: verticalAiImage,
-        video: verticalAiVideo
-    },
-    {
-        title: "Smart Agriculture Monitoring",
-        category: "IoT + AI",
-        description: "IoT sensor network integrated with AI for crop disease detection.",
-        techStack: ["Raspberry Pi", "TensorFlow Lite", "MQTT"],
-        github: "https://github.com/Abhisingh18/AGRISMART",
-        demo: "https://sih-2025-16aj.vercel.app/",
-        impact: "Deployed in 5 farms",
-        image: agricultureImage
-    },
-    {
-        title: "Crowd Intelligence OS",
-        category: "Computer Vision & OS",
-        description: "AI-powered crowd intelligence OS for tracking pedestrians, estimating flow density, calculating dwell times, and analyzing spatial direction matrices in real-time. Designed for robust crowd density calculation in intense scenarios like the Shibuya Scramble Crossing.",
-        techStack: ["YOLOv8", "FastAPI", "React", "Recharts"],
-        github: "https://github.com/Abhisingh18/Crowd-Intelligence",
-        demo: "https://crowd-intelligence-l58l.vercel.app/",
-        impact: "Production-ready Crowd Intelligence OS",
-        image: null,
-        video: crowdIntelligenceVideo
-    },
-    {
-        title: "Dodge AI ERP Copilot",
-        category: "Enterprise AI & ERP",
-        description: "AI-powered ERP analytics tool that traces Order-to-Cash (O2C) processes. It converts natural language queries into SQL, executes them on SAP data, and visualizes workflows with interactive Cytoscape graphs.",
-        techStack: ["FastAPI", "React", "Cytoscape.js", "SQL"],
-        github: "https://github.com/Abhisingh18/Dodge-AI-ERP-Copilot",
-        demo: "https://dodge-ai-erp-copilot-xcju.vercel.app/",
-        impact: "Visual O2C Analytics with AI Explanations",
-        image: null,
-        video: dodgeAiVideo
-    },
-    {
-        title: "Mantis Basic (Cognitive Cartography)",
-        category: "Cognitive Maps",
-        description: "A basic version of Mantis for cognitive cartography and spatial reasoning.",
-        techStack: ["Python", "AI", "Mapping"],
-        github: "https://github.com/Abhisingh18/Mantis-Basic-Version-of-Cognitive-Cartography-",
-        demo: "#",
-        impact: "Spatial Reasoning Prototype",
-        image: null,
-        video: mantisVideo
-    },
-    {
-        title: "Hunter AI (Cold Outreach)",
-        category: "Automation",
-        description: "Automated outreach system using LLMs to personalize emails at scale.",
-        techStack: ["OpenAI API", "Celery", "Redis"],
-        github: "https://github.com/Abhisingh18/HunterAI",
-        demo: "#",
-        impact: "Increased response rate by 3x",
-        image: hunterAiImage,
-        video: hunterAiVideo
-    },
-    {
-        title: "Railway Scheduling System (IIT KGP)",
-        category: "Client Project",
-        description: "AI-driven scheduling and resource optimization system developed for railway networks at IIT Kharagpur.",
-        techStack: ["Python", "Optimization Algos", "Data Analytics"],
-        github: "https://github.com/Abhisingh18/Railway-Project-IIT-KGP",
-        demo: "https://railway-project-iit-kgp.onrender.com/",
-        impact: "Optimized scheduling logic for large-scale networks",
-        image: railwayImage
-    },
-    {
-        title: "Trust-First AI Copilot",
-        category: "GenAI & RAG",
-        description: "An AI OS focused on transparency. Features 'Disagree-with-Me' mode, fact verification, and decision support using Groq & Vector RAG.",
-        techStack: ["Python", "Groq API", "FAISS", "React"],
-        github: "https://github.com/Abhisingh18/Trust-first-AI-Copilot",
-        demo: "#",
-        impact: "Reduces hallucinations by 90%",
-        image: trustFirstAiImage
-    },
-    {
-        title: "AI-Powered RAG Disaster Analytics Platform",
-        category: "AI & NLP",
-        description: "A real-time Disaster Management System using Retrieval-Augmented Generation for NDMA.",
-        techStack: ["React", "Python", "LangChain", "Pinecone"],
-        github: "https://github.com/Abhisingh18/Rag-Model-For-DA",
-        demo: "#",
-        impact: "Used by NDMA for real-time analysis",
-        image: analyticsImage
-    },
-    {
-        title: "Advanced Cloud Workload Forecasting",
-        category: "Time Series",
-        description: "Transformer-based model (TFT, GRU + Attention) to predict cloud resource usage.",
-        techStack: ["PyTorch", "Transformers", "AWS"],
-        github: "#",
-        demo: "#",
-        impact: "95% accuracy in load prediction",
-        image: cloudImage
-    },
-];
-
-export const SKILLS = [
-    { category: "AI / ML", items: ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost"] },
-    { category: "Deep Learning", items: ["Transformers", "CNNs", "RNNs/LSTMs", "GANs"] },
-    { category: "NLP & RAG", items: ["LangChain", "LlamaIndex", "Hugging Face", "OpenAI API"] },
-    { category: "Time Series", items: ["ARIMA", "Prophet", "LSTMs", "TFE-GRU"] },
-    { category: "Web & Backend", items: ["React.js", "FastAPI", "Node.js", "PostgreSQL"] },
-    { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "CI/CD"] },
-];
-
-export const SERVICES = [
-    {
-        title: "AI Agent Development",
-        description: "Custom autonomous agents for workflow automation.",
-        icon: Brain
-    },
-    {
-        title: "Custom ML Models",
-        description: "Tailored models for classification, regression, and forecasting.",
-        icon: Code
-    },
-    {
-        title: "RAG Systems",
-        description: "Enterprise-grade search and retrieval systems on your data.",
-        icon: Database
-    },
-    {
-        title: "Research & Prototyping",
-        description: "Turning papers into code and POCs for startups.",
-        icon: Rocket
-    }
-];
 
 import sihImage from "../assets/sih winner.jpg";
 import cbdeImage from "../assets/cbde-grant.jpg";
@@ -232,13 +35,364 @@ import innovationImage from "../assets/innovation-winner.jpg";
 import bnyImage from "../assets/bny-winner.jpg";
 import hackverseImage from "../assets/hackverse-rank.jpg";
 
+/* Large demo videos live in /public/media so the browser only downloads one
+   when a visitor actually presses play. Posters are the frame shown until then. */
+const media = (slug) => ({
+    video: `/media/${slug}.mp4`,
+    poster: `/posters/${slug}.jpg`,
+});
+
+export const SITE_URL = "https://portfolio-nine-ivory-61.vercel.app";
+
+export const PROFILE = {
+    name: "Abhishek Singh",
+    title: "AI/ML Engineer",
+    roles: [
+        "AI/ML Engineer",
+        "Quantum ML Researcher",
+        "GenAI & RAG Developer",
+        "Computer Vision Engineer",
+    ],
+    tagline:
+        "Research-driven AI engineer building intelligent systems that ship. Currently at Spring Lab, IIT Madras — previously IISc Bangalore and IIT Hyderabad.",
+    shortBio:
+        "I design and deploy machine learning systems end to end — from forecasting models and RAG pipelines to computer-vision products running in production.",
+    location: "India",
+    email: "SinghAbhishek1571@gmail.com",
+    phone: "+91 96485 31091",
+    resume: "/Abhishek-Singh-Resume.pdf",
+    linkedin: "https://www.linkedin.com/in/abhisheksingh500/",
+    github: "https://github.com/Abhisingh18",
+    geeksforgeeks:
+        "https://www.geeksforgeeks.org/profile/abhi9648k838?tab=activity",
+    leetcode: "https://leetcode.com/u/Abhi-singh_9648/",
+    available: true,
+};
+
+export const SOCIALS = [
+    { name: "GitHub", href: PROFILE.github, icon: Github },
+    { name: "LinkedIn", href: PROFILE.linkedin, icon: Linkedin },
+    { name: "Email", href: `mailto:${PROFILE.email}`, icon: Mail },
+    { name: "LeetCode", href: PROFILE.leetcode, icon: Code2 },
+    { name: "GeeksforGeeks", href: PROFILE.geeksforgeeks, icon: Terminal },
+];
+
+/* Headline numbers for the hero. Every one of these is backed by something
+   further down the page — keep it that way. */
+export const STATS = [
+    { value: "3", label: "IIT / IISc research roles" },
+    { value: "5x", label: "Hackathon wins" },
+    { value: "73%", label: "MSE cut vs. baseline" },
+    { value: "10+", label: "Systems shipped" },
+];
+
+export const EDUCATION = {
+    institution: "Central University of Chhattisgarh",
+    location: "Bilaspur, India",
+    degree: "B.Tech, Information Technology",
+    duration: "Dec 2022 — Apr 2026",
+    grade: "CGPA 8.1 / 10",
+};
+
+export const EXPERIENCE = [
+    {
+        role: "Project Staff",
+        company: "Spring Lab, IIT Madras",
+        duration: "May 2026 — Present",
+        current: true,
+        image: springLabImage,
+        logo: iitmLogoCircle,
+        description: [
+            "Applied AI/ML research and systems engineering at the Spring Lab, IIT Madras.",
+        ],
+        tags: ["Research", "AI/ML Systems"],
+    },
+    {
+        role: "Quantum Machine Learning Intern",
+        company: "IISc Bangalore · TANUH.ai",
+        duration: "Nov 2025 — May 2026",
+        image: iiscInternImage,
+        logo: iiscLogoCircle,
+        logo2: tanuhLogoCircle,
+        description: [
+            "Designed Delta-GRU, a residual forecasting architecture that models CPU-usage deltas to handle non-stationary cloud workloads.",
+            "Built a RAM-safe streaming training pipeline holding under 2 GB while training on large-scale Alibaba cluster traces.",
+            "Cut MSE by 68–73% against TFE-GRU and LSTM baselines across 1–20 minute horizons.",
+            "Reached state-of-the-art accuracy at MSE 0.00029 (1-min) and 0.003 (5-min).",
+        ],
+        tags: ["Time Series", "PyTorch", "Quantum ML"],
+    },
+    {
+        role: "AI/ML Research Intern",
+        company: "IIT Hyderabad",
+        duration: "May 2025 — Jun 2025",
+        image: iitHyderabadInternImage,
+        logo: iithLogoCircle,
+        description: [
+            "Built autonomous-driving perception modules in Python, OpenCV and ROS, improving lane-detection accuracy by 15%.",
+            "Implemented YOLOv5 object detection holding 92% accuracy under varying lighting conditions.",
+            "Fused LiDAR, GPS and camera streams to reach sub-metre localisation accuracy.",
+        ],
+        tags: ["Computer Vision", "ROS", "Sensor Fusion"],
+    },
+    {
+        role: "Optimization & Systems Project",
+        company: "IIT Kharagpur",
+        duration: "Aug 2024 — Sep 2024",
+        image: iitKgpInternImage,
+        description: [
+            "Designed a Mixed Integer Linear Programming model to optimise railway scheduling under real-world operating constraints.",
+            "Reduced scheduling conflicts by modelling arrival–departure windows, track capacity and container dependencies.",
+            "Shipped the solver as a cloud-hosted service on Render.",
+        ],
+        tags: ["MILP", "Optimization", "Python"],
+    },
+];
+
+/* `featured: true` pins a project to the top of the grid.
+   `freelance: true` moves it into the client-work section instead. */
+export const PROJECTS = [
+    {
+        title: "Vidya AI",
+        category: "EdTech AI",
+        featured: true,
+        description:
+            "Generates professional animated teacher videos in 22 Indian languages, with lessons personalised to a learner's grade on demand.",
+        techStack: ["GenAI", "React", "TTS", "Multilingual"],
+        github: "https://github.com/Abhisingh18/Vidya-AI",
+        // No public demo: the Vercel deployment sits behind deployment
+        // protection, so the old link only showed visitors a login wall.
+        demo: null,
+        impact: "22 Indian languages, free to use",
+        image: vidyaImage,
+    },
+    {
+        title: "Vertical.ai",
+        category: "GenAI & RAG",
+        featured: true,
+        description:
+            "A NotebookLM-inspired RAG platform for citation-grounded QA over imported documents, with an OpenAlex + FAISS ingestion pipeline and interactive mind maps.",
+        techStack: ["FastAPI", "FAISS", "Groq", "React"],
+        github: "https://github.com/Abhisingh18/Vertical.ai",
+        demo: null,
+        impact: "Cut manual reading effort by 60%",
+        image: verticalAiImage,
+        ...media("vertical-ai"),
+    },
+    {
+        title: "Crowd Intelligence OS",
+        category: "Computer Vision",
+        featured: true,
+        description:
+            "Real-time crowd analytics that tracks pedestrians, estimates flow density, computes dwell times and builds spatial direction matrices — built to hold up at Shibuya-Crossing density.",
+        techStack: ["YOLOv8", "FastAPI", "React", "Recharts"],
+        github: "https://github.com/Abhisingh18/Crowd-Intelligence",
+        demo: "https://crowd-intelligence-l58l.vercel.app/",
+        impact: "Real-time density & dwell-time analytics",
+        image: null,
+        ...media("crowd-intelligence"),
+    },
+    {
+        title: "Trust-First AI Copilot",
+        category: "GenAI & RAG",
+        description:
+            "A copilot built around verifiability: source-grounded answers with confidence scoring, a 'Disagree-with-Me' mode, and citation-backed retrieval via FAISS and Tavily.",
+        techStack: ["FastAPI", "FAISS", "Groq", "Next.js"],
+        github: "https://github.com/Abhisingh18/Trust-first-AI-Copilot",
+        demo: null,
+        impact: "Citation-backed answers with confidence scoring",
+        image: trustFirstAiImage,
+    },
+    {
+        title: "Smart Agriculture Monitoring",
+        category: "IoT + AI",
+        description:
+            "An IoT sensor network paired with on-device vision models for early crop-disease detection, running inference at the edge on Raspberry Pi.",
+        techStack: ["Raspberry Pi", "TensorFlow Lite", "MQTT"],
+        github: "https://github.com/Abhisingh18/AGRISMART",
+        demo: "https://sih-2025-16aj.vercel.app/",
+        impact: "Smart India Hackathon 2025 — winning build",
+        image: agricultureImage,
+    },
+    {
+        title: "Hunter AI",
+        category: "LLM Automation",
+        description:
+            "A production-ready outreach engine that parses résumés, engineers prompts per recipient and routes across multiple models (Groq API, Ollama + Mistral).",
+        techStack: ["Groq API", "Ollama", "Mistral", "Python"],
+        github: "https://github.com/Abhisingh18/HunterAI",
+        demo: null,
+        impact: "Cut manual outreach effort by 90%",
+        image: hunterAiImage,
+        ...media("hunter-ai"),
+    },
+    {
+        title: "Railway Scheduling Optimizer",
+        category: "Operations Research",
+        description:
+            "A MILP scheduling model for railway networks that resolves conflicts across arrival–departure windows, track capacity and container dependencies.",
+        techStack: ["Python", "MILP", "Render"],
+        github: "https://github.com/Abhisingh18/Railway-Project-IIT-KGP",
+        demo: "https://railway-project-iit-kgp.onrender.com/",
+        impact: "Deployed as a cloud scheduling service",
+        image: railwayImage,
+    },
+    {
+        title: "RAG Disaster Analytics",
+        category: "AI & NLP",
+        description:
+            "A retrieval-augmented analytics platform for disaster-response workflows, surfacing grounded situational summaries from live incident feeds.",
+        techStack: ["React", "LangChain", "Pinecone", "Python"],
+        github: "https://github.com/Abhisingh18/Rag-Model-For-DA",
+        demo: null,
+        impact: "Grounded situational summaries in real time",
+        image: analyticsImage,
+    },
+    {
+        title: "Cloud Workload Forecasting",
+        category: "Time Series",
+        description:
+            "Transformer and residual-GRU models predicting cloud resource usage on large-scale Alibaba cluster traces, trained under a 2 GB memory ceiling.",
+        techStack: ["PyTorch", "Delta-GRU", "TFT"],
+        github: null,
+        demo: null,
+        impact: "68–73% MSE reduction vs. baseline",
+        image: cloudImage,
+    },
+
+    /* ── Client / freelance work ── */
+    {
+        title: "Dodge AI — ERP Copilot",
+        category: "Enterprise AI",
+        freelance: true,
+        description:
+            "An ERP analytics copilot that traces Order-to-Cash flows: it turns natural-language questions into SQL, runs them against SAP data, and renders the resulting process graph in Cytoscape.",
+        techStack: ["FastAPI", "React", "Cytoscape.js", "SQL"],
+        github: "https://github.com/Abhisingh18/Dodge-AI-ERP-Copilot",
+        demo: "https://dodge-ai-erp-copilot-xcju.vercel.app/",
+        impact: "Natural-language O2C process analytics",
+        image: null,
+        ...media("dodge-ai"),
+    },
+    {
+        title: "Mantis — Cognitive Cartography",
+        category: "Spatial Reasoning",
+        freelance: true,
+        description:
+            "A cognitive-cartography engine that builds navigable spatial maps from unstructured input for downstream reasoning tasks.",
+        techStack: ["Python", "Graph AI", "Mapping"],
+        github:
+            "https://github.com/Abhisingh18/Mantis-Basic-Version-of-Cognitive-Cartography-",
+        demo: null,
+        impact: "Spatial reasoning research prototype",
+        image: null,
+        ...media("mantis"),
+    },
+];
+
+export const SKILLS = [
+    {
+        category: "Languages & Foundations",
+        items: ["Python", "SQL", "Data Structures & Algorithms", "OOP", "HLD / LLD"],
+    },
+    {
+        category: "AI & Machine Learning",
+        items: [
+            "Deep Learning",
+            "Computer Vision",
+            "NLP",
+            "Time-Series Forecasting",
+            "Quantum ML",
+        ],
+    },
+    {
+        category: "Frameworks & Libraries",
+        items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "YOLOv5 / v8"],
+    },
+    {
+        category: "GenAI & RAG",
+        items: ["LangChain", "FAISS", "Hugging Face", "Groq", "Ollama"],
+    },
+    {
+        category: "Web & Backend",
+        items: ["React.js", "React Native", "FastAPI", "Node.js", "REST APIs"],
+    },
+    {
+        category: "Data & Analytics",
+        items: ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    },
+    {
+        category: "Cloud & DevOps",
+        items: ["Docker", "CI/CD", "Microsoft Azure", "Vercel", "Render"],
+    },
+    {
+        category: "Databases & Tools",
+        items: ["MongoDB", "MySQL", "Git", "Linux", "Jupyter"],
+    },
+];
+
+export const SERVICES = [
+    {
+        title: "AI Agent Development",
+        description:
+            "Autonomous agents that carry real workflows end to end — tool use, routing and guardrails included.",
+        icon: Brain,
+    },
+    {
+        title: "Custom ML Models",
+        description:
+            "Forecasting, classification and vision models trained on your data and tuned to your constraints.",
+        icon: Code,
+    },
+    {
+        title: "RAG Systems",
+        description:
+            "Citation-grounded retrieval over private corpora, built so every answer traces back to a source.",
+        icon: Database,
+    },
+    {
+        title: "Research & Prototyping",
+        description:
+            "Turning papers into working code — proofs of concept that de-risk a decision before you fund it.",
+        icon: Rocket,
+    },
+];
+
 export const ACHIEVEMENTS = [
-    { title: "Smart India Hackathon", result: "Winner", image: sihImage },
-    { title: "CBDE Grant Funding (₹20k)", result: "Recipient", image: cbdeImage },
-    { title: "GGV Ideathon", result: "Winner", image: ggvImage },
-    { title: "Hacktivate", result: "Winner", image: hacktivateImage },
-    { title: "National Innovation Award", result: "Winner", image: innovationImage },
-    { title: "BNY Shark Tank", result: "Winner", image: bnyImage },
-    { title: "Hackverse 25", result: "4th Rank", image: hackverseImage },
-    { title: "IIT-Level Finals", result: "Multiple" }
+    {
+        title: "Smart India Hackathon 2025",
+        result: "Winner",
+        note: "National finals",
+        image: sihImage,
+    },
+    { title: "Hacktivate 2025", result: "Winner", image: hacktivateImage },
+    { title: "GGV Ideathon 2024", result: "Winner", image: ggvImage },
+    {
+        title: "National Innovation Award 2024",
+        result: "Winner",
+        image: innovationImage,
+    },
+    {
+        title: "BNI Shark Tank 2025",
+        result: "1st Runner-Up",
+        image: bnyImage,
+    },
+    {
+        title: "CBDE Grant",
+        result: "₹20K Recipient",
+        note: "Funded build grant",
+        image: cbdeImage,
+    },
+    { title: "HackVerse 2025", result: "Top 4", image: hackverseImage },
+    { title: "Hack For Impact", result: "Top 9", note: "IIT Delhi" },
+    { title: "TIF", result: "Top 13", note: "IIT Madras" },
+];
+
+export const NAV_LINKS = [
+    { name: "About", to: "about" },
+    { name: "Experience", to: "experience" },
+    { name: "Projects", to: "projects" },
+    { name: "Achievements", to: "achievements" },
+    { name: "Skills", to: "skills" },
+    { name: "Contact", to: "contact" },
 ];

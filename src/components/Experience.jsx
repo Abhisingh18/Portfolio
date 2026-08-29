@@ -1,127 +1,128 @@
 import { motion } from "framer-motion";
-import { Briefcase, Github, Play } from "lucide-react";
+import { Section, SectionHeading } from "./ui/Section";
 import { EXPERIENCE } from "../constants";
 
-const Experience = () => {
-    return (
-        <section id="experience" className="py-20 bg-[#030014] relative">
-            <div className="max-w-7xl mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white">
-                        Work <span className="text-gradient">Experience</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-cyan-500 mx-auto rounded-full"></div>
-                </motion.div>
+const Experience = () => (
+    <Section id="experience">
+        <SectionHeading
+            eyebrow="Career"
+            title="Work"
+            accent="Experience"
+            subtitle="Research and engineering roles across IIT Madras, IISc Bangalore, IIT Hyderabad and IIT Kharagpur."
+        />
 
-                <div className="grid grid-cols-4 gap-4 max-w-7xl mx-auto">
-                    {EXPERIENCE.map((exp, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group"
-                        >
-                            <div className="glass p-4 rounded-2xl hover:border-cyan-500/30 transition-all duration-300 border border-white/10 relative h-full flex flex-col">
-                                <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="absolute inset-0 flex items-start justify-center pt-4 z-20 pointer-events-none">
-                                    <div className="flex gap-5">
-                                        {exp.logo && (
-                                            <img
-                                                src={exp.logo}
-                                                alt="logo"
-                                                className="w-28 h-28 rounded-full border border-white/20"
-                                            />
-                                        )}
-                                        {exp.logo2 && (
-                                            <img
-                                                src={exp.logo2}
-                                                alt="logo2"
-                                                className="w-28 h-28 rounded-full border border-white/20"
-                                            />
-                                        )}
+        <div className="relative mx-auto max-w-4xl">
+            {/* Timeline rail — hidden on mobile, where cards stack full width. */}
+            <div
+                aria-hidden="true"
+                className="absolute left-[19px] top-2 hidden h-full w-px bg-gradient-to-b from-purple-500/60 via-white/10 to-transparent md:block"
+            />
+
+            <ol className="space-y-8">
+                {EXPERIENCE.map((exp, index) => (
+                    <motion.li
+                        key={`${exp.company}-${exp.role}`}
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.45, delay: index * 0.08 }}
+                        className="relative md:pl-14"
+                    >
+                        {/* Timeline node */}
+                        <span
+                            aria-hidden="true"
+                            className={`absolute left-[13px] top-8 hidden h-3 w-3 rounded-full ring-4 ring-background md:block ${
+                                exp.current
+                                    ? "bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,.8)]"
+                                    : "bg-purple-500"
+                            }`}
+                        />
+
+                        <article className="card group overflow-hidden p-0">
+                            <div className="flex flex-col sm:flex-row">
+                                {exp.image && (
+                                    <div className="relative h-40 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48">
+                                        <img
+                                            src={exp.image}
+                                            alt=""
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                        <div
+                                            aria-hidden="true"
+                                            className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent sm:bg-gradient-to-r"
+                                        />
+
+                                        <div className="absolute bottom-3 left-3 flex gap-2 sm:bottom-auto sm:top-3">
+                                            {[exp.logo, exp.logo2].filter(Boolean).map((src, i) => (
+                                                <img
+                                                    key={i}
+                                                    src={src}
+                                                    alt=""
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    className="h-11 w-11 rounded-full border border-white/25 bg-white/10 object-cover backdrop-blur-sm"
+                                                />
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="relative z-10 flex flex-col h-full">
-                                    {exp.image && (
-                                        <div className="w-full h-32 mb-4 overflow-hidden rounded-xl bg-black/20">
-                                            <img
-                                                src={exp.image}
-                                                alt={exp.company}
-                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                            />
-                                        </div>
-                                    )}
-                                    <div className="mb-4">
-                                        <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
-                                            {exp.role}
-                                        </h3>
-                                        <div className="flex items-center text-cyan-400 font-medium">
-                                            <Briefcase className="w-4 h-4 mr-2" />
-                                            {exp.company}
-                                        </div>
-                                        {exp.professor && (
-                                            <p className="text-gray-400 text-sm mt-1">
-                                                {exp.professor}
+                                )}
+
+                                <div className="flex-1 p-6 md:p-7">
+                                    <div className="mb-4 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+                                        <div className="min-w-0">
+                                            <h3 className="text-lg font-bold text-white md:text-xl">
+                                                {exp.role}
+                                            </h3>
+                                            <p className="mt-1 text-sm font-medium text-purple-300">
+                                                {exp.company}
                                             </p>
-                                        )}
+                                        </div>
+
+                                        <span
+                                            className={`chip shrink-0 whitespace-nowrap font-mono ${
+                                                exp.current
+                                                    ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
+                                                    : ""
+                                            }`}
+                                        >
+                                            {exp.duration}
+                                        </span>
                                     </div>
-                                    
-                                    <ul className="space-y-3 mb-6 flex-grow">
-                                        {exp.description.map((desc, i) => (
-                                            <li key={i} className="text-gray-400 text-sm flex items-start">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2 mr-2 flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.5)]"></span>
-                                                {desc}
+
+                                    <ul className="space-y-2.5">
+                                        {exp.description.map((line) => (
+                                            <li
+                                                key={line}
+                                                className="flex gap-3 text-sm leading-relaxed text-gray-400"
+                                            >
+                                                <span
+                                                    aria-hidden="true"
+                                                    className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500/80"
+                                                />
+                                                {line}
                                             </li>
                                         ))}
                                     </ul>
-                                    
-                                    <div className="pt-4 border-t border-white/10 mt-auto">
-                                        <div className="mb-3">
-                                            <span className="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                                                {exp.duration}
-                                            </span>
+
+                                    {exp.tags?.length > 0 && (
+                                        <div className="mt-5 flex flex-wrap gap-2 border-t border-white/5 pt-5">
+                                            {exp.tags.map((tag) => (
+                                                <span key={tag} className="chip">
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
-                                        <div className="flex gap-2">
-                                            {exp.github && exp.github !== "#" && (
-                                                <a
-                                                    href={exp.github}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
-                                                >
-                                                    <Github className="w-3 h-3" />
-                                                    GitHub
-                                                </a>
-                                            )}
-                                            {exp.video && (
-                                                <a
-                                                    href={exp.video}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
-                                                >
-                                                    <Play className="w-3 h-3" />
-                                                    Video
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
+                                    )}
                                 </div>
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+                        </article>
+                    </motion.li>
+                ))}
+            </ol>
+        </div>
+    </Section>
+);
 
 export default Experience;

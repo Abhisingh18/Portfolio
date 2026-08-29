@@ -1,64 +1,61 @@
 import { motion } from "framer-motion";
-import { Trophy, Award, Star } from "lucide-react";
+import { Trophy } from "lucide-react";
+import { Section, SectionHeading } from "./ui/Section";
+import { fadeUp } from "../lib/motion";
 import { ACHIEVEMENTS } from "../constants";
 
-const Achievements = () => {
-    return (
-        <section id="achievements" className="py-12 bg-[#030014]">
-            <div className="max-w-7xl mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-10"
-                >
-                    <h2 className="text-2xl md:text-4xl font-bold font-heading mb-2 text-white">
-                        Hackathons & <span className="text-gradient">Awards</span>
-                    </h2>
-                    <div className="w-16 h-1 bg-yellow-500 mx-auto rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
-                </motion.div>
+const Achievements = () => (
+    <Section id="achievements">
+        <SectionHeading
+            eyebrow="Recognition"
+            title="Hackathons &"
+            accent="Awards"
+            subtitle="Five national wins, a build grant, and finals placements at IIT Delhi and IIT Madras."
+        />
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {ACHIEVEMENTS.map((achievement, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative"
-                        >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-50 blur transition duration-500"></div>
-                            <div className="relative glass p-4 rounded-xl h-full flex flex-col items-center text-center hover:bg-white/10 transition-all duration-300 border border-white/10">
-                                {achievement.image ? (
-                                    <div className="w-full h-32 mb-3 rounded-lg overflow-hidden border border-white/10 shadow-lg group-hover:border-yellow-500/50 transition-colors">
-                                        <img
-                                            src={achievement.image}
-                                            alt={achievement.title}
-                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center mb-3 border border-yellow-500/20 group-hover:scale-110 transition-transform">
-                                        {index === 0 ? <Trophy className="text-yellow-400 w-6 h-6" /> :
-                                            index === 1 ? <Award className="text-purple-400 w-6 h-6" /> :
-                                                <Star className="text-cyan-400 w-6 h-6" />
-                                        }
-                                    </div>
-                                )}
-                                <div className="flex-grow">
-                                    <h3 className="text-base font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors">{achievement.result}</h3>
-                                    <p className="text-gray-400 font-medium text-xs line-clamp-2">{achievement.title}</p>
-                                </div>
-                                <div className="mt-3 w-full h-px bg-white/10 group-hover:bg-yellow-500/30 transition-colors"></div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {ACHIEVEMENTS.map((item, index) => (
+                <motion.article
+                    key={item.title}
+                    {...fadeUp(index)}
+                    className="group card overflow-hidden p-0 hover:border-amber-400/40"
+                >
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/[0.02]">
+                        {item.image ? (
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        ) : (
+                            <div className="flex h-full w-full items-center justify-center">
+                                <Trophy
+                                    className="h-8 w-8 text-amber-400/30"
+                                    aria-hidden="true"
+                                />
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+                        )}
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"
+                        />
+                    </div>
+
+                    <div className="p-4">
+                        <p className="text-sm font-bold text-amber-300">{item.result}</p>
+                        <h3 className="mt-1 text-xs font-medium leading-snug text-gray-300">
+                            {item.title}
+                        </h3>
+                        {item.note && (
+                            <p className="mt-1 text-[11px] text-gray-500">{item.note}</p>
+                        )}
+                    </div>
+                </motion.article>
+            ))}
+        </div>
+    </Section>
+);
 
 export default Achievements;
