@@ -12,15 +12,12 @@ import {
 
 import trustFirstAiImage from "../assets/AI-copilots.jpg";
 import verticalAiImage from "../assets/Vertical.jpg";
-import railwayImage from "../assets/iit-kgp Supply chian  Operation Reasearch.jpeg";
 import agricultureImage from "../assets/Agriculture.jpeg";
 import vidyaImage from "../assets/Vidya.jpg";
 import hunterAiImage from "../assets/HUnterai.jpg";
 import iiscInternImage from "../assets/iisc banglore.jpg";
 import iitHyderabadInternImage from "../assets/IIT-Hyderabad.jpg";
 import iitKgpInternImage from "../assets/iit kgp.jpg";
-import analyticsImage from "../assets/aanlytics.jpg";
-import cloudImage from "../assets/qauntum.jpg";
 import springLabImage from "../assets/spring_lab_iit_madras_cover.jpg";
 import iitmLogoCircle from "../assets/IITM_LOGO_circle.png";
 import tanuhLogoCircle from "../assets/tanuh_logo_circle.png";
@@ -225,39 +222,6 @@ export const PROJECTS = [
         impact: "Cut manual outreach effort by 90%",
         image: hunterAiImage,
         ...media("hunter-ai"),
-    },
-    {
-        title: "Railway Scheduling Optimizer",
-        category: "Operations Research",
-        description:
-            "A MILP scheduling model for railway networks that resolves conflicts across arrival–departure windows, track capacity and container dependencies.",
-        techStack: ["Python", "MILP", "Render"],
-        github: "https://github.com/Abhisingh18/Railway-Project-IIT-KGP",
-        demo: "https://railway-project-iit-kgp.onrender.com/",
-        impact: "Deployed as a cloud scheduling service",
-        image: railwayImage,
-    },
-    {
-        title: "RAG Disaster Analytics",
-        category: "AI & NLP",
-        description:
-            "A retrieval-augmented analytics platform for disaster-response workflows, surfacing grounded situational summaries from live incident feeds.",
-        techStack: ["React", "LangChain", "Pinecone", "Python"],
-        github: "https://github.com/Abhisingh18/Rag-Model-For-DA",
-        demo: null,
-        impact: "Grounded situational summaries in real time",
-        image: analyticsImage,
-    },
-    {
-        title: "Cloud Workload Forecasting",
-        category: "Time Series",
-        description:
-            "Transformer and residual-GRU models predicting cloud resource usage on large-scale Alibaba cluster traces, trained under a 2 GB memory ceiling.",
-        techStack: ["PyTorch", "Delta-GRU", "TFT"],
-        github: null,
-        demo: null,
-        impact: "68–73% MSE reduction vs. baseline",
-        image: cloudImage,
     },
 
     /* ── Client / freelance work ── */
