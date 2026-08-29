@@ -17,7 +17,6 @@ import vidyaImage from "../assets/Vidya.jpg";
 import hunterAiImage from "../assets/HUnterai.jpg";
 import iiscInternImage from "../assets/iisc banglore.jpg";
 import iitHyderabadInternImage from "../assets/IIT-Hyderabad.jpg";
-import iitKgpInternImage from "../assets/iit kgp.jpg";
 import springLabImage from "../assets/spring_lab_iit_madras_cover.jpg";
 import iitmLogoCircle from "../assets/IITM_LOGO_circle.png";
 import tanuhLogoCircle from "../assets/tanuh_logo_circle.png";
@@ -131,18 +130,6 @@ export const EXPERIENCE = [
             "Fused LiDAR, GPS and camera streams to reach sub-metre localisation accuracy.",
         ],
         tags: ["Computer Vision", "ROS", "Sensor Fusion"],
-    },
-    {
-        role: "Optimization & Systems Project",
-        company: "IIT Kharagpur",
-        duration: "Aug 2024 — Sep 2024",
-        image: iitKgpInternImage,
-        description: [
-            "Designed a Mixed Integer Linear Programming model to optimise railway scheduling under real-world operating constraints.",
-            "Reduced scheduling conflicts by modelling arrival–departure windows, track capacity and container dependencies.",
-            "Shipped the solver as a cloud-hosted service on Render.",
-        ],
-        tags: ["MILP", "Optimization", "Python"],
     },
 ];
 

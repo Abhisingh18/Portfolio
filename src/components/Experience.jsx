@@ -8,7 +8,7 @@ const Experience = () => (
             eyebrow="Career"
             title="Work"
             accent="Experience"
-            subtitle="Research and engineering roles across IIT Madras, IISc Bangalore, IIT Hyderabad and IIT Kharagpur."
+            subtitle="Research and engineering roles across IIT Madras, IISc Bangalore and IIT Hyderabad."
         />
 
         <div className="relative mx-auto max-w-4xl">
