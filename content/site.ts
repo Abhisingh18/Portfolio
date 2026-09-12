@@ -294,8 +294,6 @@ export type FocusArea = {
   title: string[];
   abbr?: string;
   body: string;
-  /** Research questions vs. things I build for clients. Shown differently. */
-  kind: "research" | "engineering";
 };
 
 /**
@@ -304,48 +302,60 @@ export type FocusArea = {
  */
 export const RND = {
   affiliation: "Spring Lab, IIT Madras",
-  vision:
-    "Language should not decide who gets to use good technology.",
-  lede: "My research is on speech and language for Indian languages, where the data that makes English models work simply does not exist. Alongside it I build the systems that put such models in front of real users.",
-  areas: [
+  vision: "Language should not decide who gets to use good technology.",
+  lede: "My research is on speech and language for Indian languages, where the data that makes English models work simply does not exist.",
+  developmentLede:
+    "Alongside the research, the engineering that puts a model in front of people and keeps it there.",
+
+  /** Open problems I work on. No benchmark or paper is claimed here. */
+  research: [
     {
       no: "01",
       title: ["Speech", "Recognition"],
       abbr: "ASR",
       body: "Recognition degrades on accented, dialectal and code-switched speech — which is how most of India actually speaks.",
-      kind: "research",
     },
     {
       no: "02",
       title: ["Multilingual", "Translation"],
       abbr: "MT",
       body: "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
-      kind: "research",
     },
     {
       no: "03",
-      title: ["LLM"],
-      body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
-      kind: "engineering",
+      title: ["Large Language", "Models"],
+      abbr: "LLM",
+      body: "Adapting and aligning language models for languages they were never really trained on, and coupling them to speech encoders.",
     },
     {
       no: "04",
       title: ["Vision-Language", "Models"],
       abbr: "VLM",
       body: "Grounding language in visual context stays brittle once an image leaves the distribution the model was tuned on.",
-      kind: "research",
+    },
+  ] satisfies FocusArea[],
+
+  /** What I build and ship. */
+  development: [
+    {
+      no: "01",
+      title: ["Web", "& Apps"],
+      body: "The product around the model — Next.js and React on the web, React Native on mobile, built to stay quick on the devices people actually own.",
     },
     {
-      no: "05",
+      no: "02",
+      title: ["Backend", "& APIs"],
+      body: "FastAPI and Node services that put model inference behind a stable contract, with the queuing, timeouts and error handling production asks for.",
+    },
+    {
+      no: "03",
       title: ["RAG", "Applications"],
       body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
-      kind: "engineering",
     },
     {
-      no: "06",
-      title: ["Full-Stack", "& Apps"],
-      body: "The product around the model — FastAPI services, Next.js and React front-ends, React Native apps, and the deployment that keeps them up.",
-      kind: "engineering",
+      no: "04",
+      title: ["Deployment", "& Infra"],
+      body: "Docker, CI/CD and the hosting that keeps it all up — Vercel, Render, Azure — including the cold starts and timeouts nobody demos.",
     },
   ] satisfies FocusArea[],
 } as const;
