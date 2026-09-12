@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Recognition } from "@/components/recognition";
 import { PageShell } from "@/components/ui/page-shell";
+import { PAGES } from "@/content/site";
+
+const page = PAGES.find((p) => p.href === "/recognition")!;
 
 export const metadata: Metadata = {
-  title: "Recognition",
-  description: "Five national hackathon wins including Smart India Hackathon 2025, a funded CBDE build grant, and finals placements at IIT Delhi and IIT Madras.",
-  alternates: { canonical: "/recognition" },
+  title: page.title,
+  description: page.description,
+  alternates: { canonical: page.href },
 };
 
 export default function RecognitionPage() {

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Research } from "@/components/research";
 import { PageShell } from "@/components/ui/page-shell";
+import { PAGES } from "@/content/site";
+
+const page = PAGES.find((p) => p.href === "/research")!;
 
 export const metadata: Metadata = {
-  title: "Research interests",
-  description: "Multilingual machine translation, automatic speech recognition and vision-language models for Indian languages, at Spring Lab, IIT Madras.",
-  alternates: { canonical: "/research" },
+  title: page.title,
+  description: page.description,
+  alternates: { canonical: page.href },
 };
 
 export default function ResearchPage() {

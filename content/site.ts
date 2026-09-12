@@ -375,6 +375,8 @@ export const PAGES = [
     label: "Work",
     href: "/work",
     title: "Work experience",
+    description:
+      "Research and engineering roles at Spring Lab IIT Madras, IISc Bangalore and IIT Hyderabad — including Delta-GRU forecasting and autonomous-driving perception.",
     blurb: "Research and engineering roles across IIT Madras, IISc Bangalore and IIT Hyderabad.",
   },
   {
@@ -382,6 +384,8 @@ export const PAGES = [
     label: "Research",
     href: "/research",
     title: "Research & development",
+    description:
+      "Multilingual machine translation, speech recognition and vision-language models for Indian languages, plus retrieval, agent and full-stack engineering.",
     blurb: "Multilingual translation, speech recognition and vision-language models — plus the RAG, agent and full-stack work I build.",
   },
   {
@@ -389,6 +393,8 @@ export const PAGES = [
     label: "Projects",
     href: "/projects",
     title: "Selected projects",
+    description:
+      "Prototypes and production systems across generative AI, computer vision, retrieval and IoT — with live demos and source.",
     blurb: "Prototypes and production systems across generative AI, computer vision and IoT.",
   },
   {
@@ -396,6 +402,8 @@ export const PAGES = [
     label: "Recognition",
     href: "/recognition",
     title: "Recognition",
+    description:
+      "Five national hackathon wins including Smart India Hackathon 2025, a funded CBDE build grant, and finals placements at IIT Delhi and IIT Madras.",
     blurb: "Five national hackathon wins, a funded build grant and finals placements.",
   },
   {
@@ -403,6 +411,8 @@ export const PAGES = [
     label: "About",
     href: "/about",
     title: "About",
+    description:
+      "Background, education and the toolkit behind the work — an AI/ML engineer working between research and production.",
     blurb: "Background, education and the toolkit I reach for.",
   },
   {
@@ -410,6 +420,8 @@ export const PAGES = [
     label: "Contact",
     href: "/contact",
     title: "Contact",
+    description:
+      "Get in touch about AI/ML roles, research collaborations or consulting work.",
     blurb: "Open to roles, research collaborations and consulting.",
   },
 ] as const;

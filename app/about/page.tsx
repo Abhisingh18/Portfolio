@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { About } from "@/components/about";
 import { PageShell } from "@/components/ui/page-shell";
+import { PAGES } from "@/content/site";
+
+const page = PAGES.find((p) => p.href === "/about")!;
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Background, education and the toolkit behind the work — an AI/ML engineer working between research and production.",
-  alternates: { canonical: "/about" },
+  title: page.title,
+  description: page.description,
+  alternates: { canonical: page.href },
 };
 
 export default function AboutPage() {
