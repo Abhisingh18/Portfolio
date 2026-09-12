@@ -194,32 +194,6 @@ export const PROJECTS: Project[] = [
     live: "https://sih-2025-16aj.vercel.app/",
   },
   {
-    slug: "hunter-ai",
-    title: "Hunter AI",
-    category: "LLM Automation",
-    blurb:
-      "A production-ready outreach engine that parses résumés, engineers prompts per recipient and routes across multiple models.",
-    result: "Cut manual outreach effort by 90%",
-    stack: ["Groq API", "Ollama", "Mistral", "Python"],
-    image: "/images/hunter-ai.jpg",
-    video: "/media/hunter-ai.mp4",
-    poster: "/posters/hunter-ai.jpg",
-    repo: "https://github.com/Abhisingh18/HunterAI",
-    live: null,
-  },
-  {
-    slug: "trust-first",
-    title: "Trust-First AI Copilot",
-    category: "GenAI & RAG",
-    blurb:
-      "A copilot built around verifiability: source-grounded answers with confidence scoring, a 'Disagree-with-Me' mode, and citation-backed retrieval via FAISS and Tavily.",
-    result: "Citation-backed answers with confidence scoring",
-    stack: ["FastAPI", "FAISS", "Groq", "Next.js"],
-    image: "/images/trust-first-ai.jpg",
-    repo: "https://github.com/Abhisingh18/Trust-first-AI-Copilot",
-    live: null,
-  },
-  {
     slug: "vidya-ai",
     title: "Vidya AI",
     category: "EdTech AI",
