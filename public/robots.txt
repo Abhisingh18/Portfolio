@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://portfolio-nine-ivory-61.vercel.app/sitemap.xml

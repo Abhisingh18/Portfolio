@@ -1,6 +1,7 @@
 # Abhishek Singh — Portfolio
 
-Personal portfolio for an AI/ML engineer. React + Vite + Tailwind, deployed on Vercel.
+Personal portfolio for an AI/ML engineer. Next.js App Router, TypeScript,
+Tailwind v4. Statically prerendered and deployed on Vercel.
 
 **Live:** https://portfolio-nine-ivory-61.vercel.app
 
@@ -8,55 +9,56 @@ Personal portfolio for an AI/ML engineer. React + Vite + Tailwind, deployed on V
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build into dist/
-npm run preview  # serve the production build
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run start      # serve the production build
 npm run lint
+npm run typecheck
 ```
-
-## Contact form
-
-The form works with no setup: it opens the visitor's mail client with the
-message pre-filled. To collect submissions in an inbox instead, create a
-[Formspree](https://formspree.io) form and add its ID:
-
-```bash
-# .env
-VITE_FORMSPREE_ID=xxxxxxxx
-```
-
-With the variable set, the form POSTs to Formspree and shows inline
-success/error states. Without it, the mailto fallback is used — a message is
-never silently dropped either way.
 
 ## Editing content
 
-Almost everything on the page is data, not markup. Edit
-[`src/constants/index.js`](src/constants/index.js):
+Nothing on the page is hardcoded in a component. Everything — copy, links,
+metrics, images — lives in [`content/site.ts`](content/site.ts), typed so a
+wrong field fails the build rather than the page.
 
 | Export | Controls |
 | --- | --- |
-| `PROFILE` | Name, contact links, résumé path, availability badge |
-| `STATS` | The four headline numbers under the hero |
-| `EDUCATION` | Degree card in About |
-| `EXPERIENCE` | Timeline entries (`current: true` marks the active role) |
-| `PROJECTS` | Project grid — `freelance: true` moves an entry to the client-work section |
-| `SKILLS`, `SERVICES`, `ACHIEVEMENTS` | Their respective sections |
-| `NAV_LINKS` | Navbar and footer links |
+| `SITE` | Canonical URL, title, meta description |
+| `PROFILE` | Contact details, intro, résumé path, availability badge |
+| `STATS` | The four figures under the hero |
+| `ROLES` | Work-experience entries (`current: true` marks the active role) |
+| `PROJECTS` | Project grid — set `client` to move an entry into Client work |
+| `AWARDS`, `SKILLS`, `EDUCATION` | Their respective sections |
+| `AFFILIATIONS` | The marquee strip under the hero |
+| `NAV` | Header and footer links |
 
-Keep the numbers in `STATS` backed by something further down the page.
+Keep every number in `STATS` backed by something further down the page.
+
+## Contact form
+
+The form posts to a Server Action, so it works with JavaScript disabled.
+Validation runs on the server and a hidden honeypot field absorbs bots.
+
+With no email provider configured it falls back to opening the visitor's mail
+client with the message pre-filled — a submission is never silently dropped.
+To deliver messages to an inbox instead, add a [Resend](https://resend.com)
+key:
+
+```bash
+# .env.local
+RESEND_API_KEY=re_xxxxxxxx
+CONTACT_TO=SinghAbhishek1571@gmail.com      # optional
+CONTACT_FROM="Portfolio <hello@yourdomain>" # optional, needs a verified domain
+```
 
 ## Media
 
-Demo videos live in `public/media/` with poster frames in `public/posters/`,
-referenced through the `media()` helper in `src/constants/index.js`.
+Demo videos live in `public/media/` with poster frames in `public/posters/`.
 
-They are deliberately **not** imported through Vite. Importing them bundles
-them into the build and, when a card autoplays, downloads tens of megabytes on
-page load. Serving them from `public/` means a video is only fetched when a
-visitor presses play.
-
-To add a demo video, compress it first:
+They are served as static files rather than imported, and carry
+`preload="metadata"`, so a visitor downloads a video only after pressing play.
+Compress anything new before adding it:
 
 ```bash
 ffmpeg -i raw.mp4 \
@@ -68,25 +70,34 @@ ffmpeg -i raw.mp4 \
 ffmpeg -ss 2 -i raw.mp4 -frames:v 1 -q:v 6 public/posters/<slug>.jpg
 ```
 
-Then add `...media("<slug>")` to the project entry.
+Then point the project's `video` and `poster` fields at them.
 
 ## Structure
 
 ```
-src/
-  components/
-    ui/          Section, ProjectCard, VideoModal — shared across sections
-    *.jsx        One file per page section
-  constants/     All page content
-  lib/motion.js  Shared entrance animation
+app/
+  layout.tsx      Fonts, metadata, JSON-LD
+  page.tsx        Section order
+  actions.ts      Contact Server Action
+  globals.css     Design tokens (Tailwind v4 @theme)
+  sitemap.ts      Generated /sitemap.xml
+  robots.ts       Generated /robots.txt
+components/
+  ui/             Section, Reveal, icons
+  *.tsx           One file per page section
+content/site.ts   All page content, typed
 public/
-  media/         Compressed demo videos (not bundled)
-  posters/       Poster frames
+  images/         Photography and logos
+  media/          Compressed demo videos
+  posters/        Video poster frames
 ```
 
-## Notes
+## Design notes
 
+- The palette is near-monochrome on pure black. One violet accent carries the
+  emphasis; a single teal is reserved for status and results. Adding more
+  colour is the fastest way to make this look cheaper.
+- `Reveal` animates with a data attribute rather than React state, so it costs
+  no re-render and content stays visible without JavaScript.
 - `og-image.jpg`, `favicon.ico` and `apple-touch-icon.png` are generated
-  assets; regenerate them if the headline stats or title change.
-- `sitemap.xml`, `robots.txt` and the canonical/OG URLs in `index.html`
-  hardcode the production domain. Update them together if it changes.
+  assets. Regenerate them if the headline stats or title change.
