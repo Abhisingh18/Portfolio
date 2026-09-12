@@ -127,9 +127,10 @@ export const ROLES: Role[] = [
     period: "May 2026 — Present",
     current: true,
     points: [
-      "Applied AI/ML research and systems engineering at the Spring Lab, IIT Madras.",
+      "Working on SLAM-ASR — speech recognition built on speech-LLM architectures — for Indian languages.",
+      "Targeting the conditions Indic speech actually arrives in: accented, dialectal and code-switched, with little labelled audio to train on.",
     ],
-    stack: ["Research", "AI/ML Systems"],
+    stack: ["SLAM-ASR", "Speech", "Indic Languages"],
   },
   {
     title: "Quantum Machine Learning Intern",
