@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { PROFILE, STATS, SOCIALS, AFFILIATIONS } from "@/content/site";
 import { Reveal } from "./ui/reveal";
 import { FocusRotator } from "./focus-rotator";
+import { HeroPhotos } from "./hero-photos";
 
 export function Hero() {
   return (
@@ -17,6 +18,8 @@ export function Hero() {
       />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 md:px-10">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
         <Reveal>
           <p className="meta flex items-center gap-2.5">
             {PROFILE.available && (
@@ -32,7 +35,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="mt-7 font-serif text-[clamp(3rem,11vw,7.5rem)] leading-[0.92] tracking-tight text-fg">
+          <h1 className="mt-7 font-serif text-[clamp(2.75rem,7.5vw,5.75rem)] leading-[0.94] tracking-tight text-fg">
             Abhishek
             <br />
             <span className="text-fg-muted">Singh</span>
@@ -40,12 +43,12 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={160}>
-          <div className="mt-8 flex flex-col gap-8 border-t border-line pt-8 md:flex-row md:items-start md:justify-between md:gap-16">
-            <p className="max-w-xl text-[15px] leading-relaxed text-fg-muted md:text-base">
+          <div className="mt-8 flex flex-col gap-8 border-t border-line pt-8 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
+            <p className="max-w-md text-[15px] leading-relaxed text-fg-muted">
               {PROFILE.intro}
             </p>
 
-            <div className="shrink-0 md:text-right">
+            <div className="shrink-0 sm:text-right">
               <p className="meta">Currently working on</p>
               <FocusRotator words={[...PROFILE.focus]} />
             </div>
@@ -86,6 +89,13 @@ export function Hero() {
             ))}
           </div>
         </Reveal>
+
+          </div>
+
+          <Reveal delay={200} className="order-first lg:order-none">
+            <HeroPhotos />
+          </Reveal>
+        </div>
 
         <Reveal delay={320}>
           <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-4">
