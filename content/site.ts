@@ -233,37 +233,6 @@ export const PROJECTS: Project[] = [
     // link would only show visitors a login wall.
     live: null,
   },
-  {
-    slug: "dodge-ai",
-    title: "Dodge AI — ERP Copilot",
-    category: "Enterprise AI",
-    client: "MIT, USA",
-    blurb:
-      "An ERP analytics copilot that traces Order-to-Cash flows: it turns natural-language questions into SQL, runs them against SAP data, and renders the process graph in Cytoscape.",
-    result: "Natural-language O2C process analytics",
-    stack: ["FastAPI", "React", "Cytoscape.js", "SQL"],
-    image: null,
-    video: "/media/dodge-ai.mp4",
-    poster: "/posters/dodge-ai.jpg",
-    repo: "https://github.com/Abhisingh18/Dodge-AI-ERP-Copilot",
-    live: "https://dodge-ai-erp-copilot-xcju.vercel.app/",
-  },
-  {
-    slug: "mantis",
-    title: "Mantis — Cognitive Cartography",
-    category: "Spatial Reasoning",
-    client: "MIT, USA",
-    blurb:
-      "A cognitive-cartography engine that builds navigable spatial maps from unstructured input for downstream reasoning tasks.",
-    result: "Spatial reasoning research prototype",
-    stack: ["Python", "Graph AI", "Mapping"],
-    image: null,
-    video: "/media/mantis.mp4",
-    poster: "/posters/mantis.jpg",
-    repo:
-      "https://github.com/Abhisingh18/Mantis-Basic-Version-of-Cognitive-Cartography-",
-    live: null,
-  },
 ];
 
 export const AWARDS: Award[] = [
@@ -333,7 +302,6 @@ export const AFFILIATIONS = [
   "IIT Hyderabad",
   "Smart India Hackathon",
   "TANUH.ai",
-  "MIT, USA",
   "IIT Delhi",
   "CBDE",
 ];
