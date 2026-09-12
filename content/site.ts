@@ -288,39 +288,82 @@ export const AFFILIATIONS = [
   "CBDE",
 ];
 
+export type FocusArea = {
+  no: string;
+  title: string[];
+  abbr?: string;
+  body: string;
+  /** Research questions vs. things I build for clients. Shown differently. */
+  kind: "research" | "engineering";
+};
+
 /**
- * Research interests, not a results table.
- *
- * Nothing here claims a benchmark, a dataset or a publication — add those
- * only once they exist, with a number or a link attached.
+ * The research half states open problems — it claims no benchmark or paper.
+ * The engineering half states what I build. Add numbers only when they exist.
  */
-export const RESEARCH = {
+export const RND = {
   affiliation: "Spring Lab, IIT Madras",
-  lede: "Speech and language systems for Indian languages, where the data that makes English models work simply does not exist.",
+  vision:
+    "Language should not decide who gets to use good technology.",
+  lede: "My research is on speech and language for Indian languages, where the data that makes English models work simply does not exist. Alongside it I build the systems that put such models in front of real users.",
   areas: [
     {
-      title: "Multilingual Machine Translation",
+      no: "01",
+      title: ["Multilingual", "Translation"],
       abbr: "MT",
-      problem:
-        "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
-      threads: ["Low-resource transfer", "Indic language pairs", "Evaluation beyond BLEU"],
+      body: "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
+      kind: "research",
     },
     {
-      title: "Automatic Speech Recognition",
+      no: "02",
+      title: ["Speech", "Recognition"],
       abbr: "ASR",
-      problem:
-        "Recognition degrades on accented, dialectal and code-switched speech — which is how most of India actually speaks.",
-      threads: ["Code-switched speech", "Self-supervised pretraining", "Acoustic modelling"],
+      body: "Recognition degrades on accented, dialectal and code-switched speech — which is how most of India actually speaks.",
+      kind: "research",
     },
     {
-      title: "Vision-Language Models",
+      no: "03",
+      title: ["Vision-Language", "Models"],
       abbr: "VLM",
-      problem:
-        "Grounding language in visual context is still brittle once the image leaves the distribution the model was tuned on.",
-      threads: ["Multimodal grounding", "Instruction tuning", "Document understanding"],
+      body: "Grounding language in visual context stays brittle once an image leaves the distribution the model was tuned on.",
+      kind: "research",
     },
-  ] satisfies ResearchArea[],
+    {
+      no: "04",
+      title: ["Retrieval", "& RAG"],
+      body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
+      kind: "engineering",
+    },
+    {
+      no: "05",
+      title: ["AI", "Agents"],
+      body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
+      kind: "engineering",
+    },
+    {
+      no: "06",
+      title: ["Full-Stack", "& Apps"],
+      body: "The product around the model — FastAPI services, Next.js and React front-ends, React Native apps, and the deployment that keeps them up.",
+      kind: "engineering",
+    },
+  ] satisfies FocusArea[],
 } as const;
+
+/** Dated updates for the home page. Newest first; keep these factual. */
+export const NEWS = [
+  {
+    date: "May 2026",
+    body: "Joined Spring Lab, IIT Madras as Project Staff, working on speech and language for Indian languages.",
+  },
+  {
+    date: "Nov 2025",
+    body: "Started quantum machine learning research at IISc Bangalore with TANUH.ai, on forecasting for non-stationary cloud workloads.",
+  },
+  {
+    date: "2025",
+    body: "Won Smart India Hackathon 2025 with an edge-inference crop-disease detection system.",
+  },
+];
 
 /**
  * Every section is its own route. `index` drives the numbering shown in
@@ -338,8 +381,8 @@ export const PAGES = [
     index: "02",
     label: "Research",
     href: "/research",
-    title: "Research interests",
-    blurb: "Multilingual translation, speech recognition and vision-language models for Indian languages.",
+    title: "Research & development",
+    blurb: "Multilingual translation, speech recognition and vision-language models — plus the RAG, agent and full-stack work I build.",
   },
   {
     index: "03",

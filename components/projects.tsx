@@ -6,6 +6,7 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { PROJECTS, type Project } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
+import Link from "next/link";
 import { VideoModal } from "./video-modal";
 import { GitHubMark } from "./ui/icons";
 
@@ -126,23 +127,33 @@ function ProjectCard({
   );
 }
 
-export function Projects() {
+export function Projects({
+  limit,
+  index = "03",
+  showAll = false,
+}: {
+  /** Render only the first N, for the home page preview. */
+  limit?: number;
+  index?: string;
+  showAll?: boolean;
+} = {}) {
   const [playing, setPlaying] = useState<Project | null>(null);
 
   const owned = PROJECTS.filter((p) => !p.client);
-  const client = PROJECTS.filter((p) => p.client);
+  const client = limit ? [] : PROJECTS.filter((p) => p.client);
+  const shown = limit ? owned.slice(0, limit) : owned;
 
   return (
     <Section id="projects">
       <SectionHeading
-        index="03"
+        index={index}
         title="Selected"
         accent="projects"
         lede="Research prototypes and production systems across generative AI, computer vision and forecasting."
       />
 
       <div className="grid gap-6 md:grid-cols-2">
-        {owned.map((project, i) => (
+        {shown.map((project, i) => (
           <ProjectCard
             key={project.slug}
             project={project}
@@ -174,6 +185,18 @@ export function Projects() {
             ))}
           </div>
         </>
+      )}
+
+      {showAll && (
+        <Reveal className="mt-12">
+          <Link
+            href="/projects"
+            className="link-underline inline-flex items-center gap-2 text-sm text-fg"
+          >
+            All projects
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+        </Reveal>
       )}
 
       <VideoModal project={playing} onClose={() => setPlaying(null)} />

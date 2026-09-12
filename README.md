@@ -31,7 +31,8 @@ wrong field fails the build rather than the page.
 | `PROJECTS` | Project grid — set `client` to move an entry into Client work |
 | `AWARDS`, `SKILLS`, `EDUCATION` | Their respective sections |
 | `AFFILIATIONS` | The marquee strip under the hero |
-| `RESEARCH` | Research-interest areas |
+| `RND` | Research areas and engineering capabilities (the six focus cards) |
+| `NEWS` | Dated updates on the home page |
 | `PAGES` | The routes — label, URL, section number and home-index blurb |
 
 Keep every number in `STATS` backed by something further down the page.
@@ -78,7 +79,8 @@ Then point the project's `video` and `poster` fields at them.
 ```
 app/
   layout.tsx        Chrome, fonts, metadata, JSON-LD
-  page.tsx          Home — hero plus the index of routes
+  page.tsx          Home — hero, current role, focus areas, and a
+                    preview of projects/recognition linking out
   work/             ┐
   research/         │
   projects/         ├ one route per section, each with its own
@@ -98,6 +100,12 @@ public/
   media/            Compressed demo videos
   posters/          Video poster frames
 ```
+
+### Home vs. routes
+
+The home page previews each area and links out; the routes hold the full
+content and stay canonical for it. Keep it that way — rendering everything
+twice would make the two versions compete in search results.
 
 ### Adding a section
 

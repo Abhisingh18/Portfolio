@@ -1,50 +1,58 @@
-import { RESEARCH } from "@/content/site";
+import { RND } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
+
+/** The six focus areas. Reused on the home page and on /research. */
+export function FocusGrid() {
+  return (
+    <div className="grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+      {RND.areas.map((area, i) => (
+        <Reveal key={area.no} delay={i * 60} className="bg-ink">
+          <div className="group h-full p-7 transition-colors duration-500 hover:bg-white/[0.02] md:p-8">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="meta transition-colors duration-300 group-hover:text-accent">
+                {area.no}
+              </span>
+              <span
+                className={`meta ${
+                  area.kind === "research" ? "text-accent/70" : "text-fg-faint"
+                }`}
+              >
+                {area.kind === "research" ? "Research" : "Build"}
+              </span>
+            </div>
+
+            <h3 className="mt-6 font-serif text-2xl leading-tight text-fg md:text-[1.75rem]">
+              {area.title[0]}
+              <br />
+              <span className="text-fg-muted">{area.title[1]}</span>
+            </h3>
+
+            <p className="mt-4 text-[14px] leading-relaxed text-fg-muted">
+              {area.body}
+            </p>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
 
 export function Research() {
   return (
     <Section id="research">
       <SectionHeading
         index="02"
-        title="Research"
-        accent="interests"
-        lede={RESEARCH.lede}
+        title="Research &"
+        accent="development"
+        lede={RND.lede}
       />
 
       <Reveal className="mb-12">
-        <p className="meta">Currently at {RESEARCH.affiliation}</p>
+        <p className="meta">Currently at {RND.affiliation}</p>
       </Reveal>
 
-      <div className="border-t border-line">
-        {RESEARCH.areas.map((area, i) => (
-          <Reveal as="article" key={area.title} delay={i * 90}>
-            <div className="group grid gap-5 border-b border-line py-10 md:grid-cols-[7rem_1fr] md:gap-12 md:py-12">
-              <p className="font-serif text-3xl leading-none text-fg-faint transition-colors duration-500 group-hover:text-accent md:text-4xl">
-                {area.abbr ?? String(i + 1).padStart(2, "0")}
-              </p>
-
-              <div>
-                <h3 className="text-xl font-medium text-fg md:text-2xl">
-                  {area.title}
-                </h3>
-
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg-muted">
-                  {area.problem}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {area.threads.map((thread) => (
-                    <span key={thread} className="tag">
-                      {thread}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+      <FocusGrid />
     </Section>
   );
 }

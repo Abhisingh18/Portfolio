@@ -1,20 +1,31 @@
 import Image from "next/image";
-import { Award as AwardIcon } from "lucide-react";
+import Link from "next/link";
+import { Award as AwardIcon, ArrowUpRight } from "lucide-react";
 import { AWARDS } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
 
-export function Recognition() {
+export function Recognition({
+  limit,
+  index = "04",
+  showAll = false,
+}: {
+  limit?: number;
+  index?: string;
+  showAll?: boolean;
+} = {}) {
+  const shown = limit ? AWARDS.slice(0, limit) : AWARDS;
+
   return (
     <Section id="recognition">
       <SectionHeading
-        index="04"
+        index={index}
         title="Recognition"
         lede="Five national wins, a funded build grant, and finals placements at IIT Delhi and IIT Madras."
       />
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {AWARDS.map((award, i) => (
+        {shown.map((award, i) => (
           <Reveal as="article" key={award.title} delay={i * 55}>
             <div className="panel group h-full overflow-hidden transition-colors duration-500 hover:border-line-strong">
               <div className="relative aspect-4/3 overflow-hidden bg-ink-sunken">
@@ -54,6 +65,18 @@ export function Recognition() {
           </Reveal>
         ))}
       </div>
+
+      {showAll && (
+        <Reveal className="mt-12">
+          <Link
+            href="/recognition"
+            className="link-underline inline-flex items-center gap-2 text-sm text-fg"
+          >
+            All recognition
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+        </Reveal>
+      )}
     </Section>
   );
 }

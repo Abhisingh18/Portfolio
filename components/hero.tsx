@@ -122,7 +122,7 @@ export function Hero() {
 
       <div className="relative mx-auto mt-10 w-full max-w-6xl px-6 md:px-10">
         <a
-          href="#index"
+          href="/work"
           className="meta inline-flex items-center gap-2 transition-colors hover:text-fg"
         >
           <ArrowDown size={13} aria-hidden="true" />
