@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { PROFILE, STATS, SOCIALS, AFFILIATIONS } from "@/content/site";
 import { Reveal } from "./ui/reveal";
@@ -53,13 +54,13 @@ export function Hero() {
 
         <Reveal delay={240}>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-ink transition-transform duration-300 hover:-translate-y-0.5"
             >
               Get in touch
               <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            </Link>
 
             <a
               href={PROFILE.resume}
@@ -121,7 +122,7 @@ export function Hero() {
 
       <div className="relative mx-auto mt-10 w-full max-w-6xl px-6 md:px-10">
         <a
-          href="#work"
+          href="#index"
           className="meta inline-flex items-center gap-2 transition-colors hover:text-fg"
         >
           <ArrowDown size={13} aria-hidden="true" />

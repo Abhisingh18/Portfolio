@@ -135,7 +135,7 @@ export function Projects() {
   return (
     <Section id="projects">
       <SectionHeading
-        index="02"
+        index="03"
         title="Selected"
         accent="projects"
         lede="Research prototypes and production systems across generative AI, computer vision and forecasting."
@@ -156,7 +156,7 @@ export function Projects() {
         <>
           <Reveal className="mt-24 mb-12">
             <div className="flex items-baseline gap-4 border-b border-line pb-6">
-              <span className="meta shrink-0">02b</span>
+              <span className="meta shrink-0">03b</span>
               <h3 className="font-serif text-3xl leading-none text-fg md:text-4xl">
                 Client <em className="text-fg-muted">work</em>
               </h3>

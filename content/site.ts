@@ -52,6 +52,14 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type ResearchArea = {
+  title: string;
+  abbr?: string;
+  /** The open problem, stated plainly. Not a claim about results. */
+  problem: string;
+  threads: string[];
+};
+
 export const SITE = {
   url: "https://portfolio-nine-ivory-61.vercel.app",
   name: "Abhishek Singh",
@@ -280,10 +288,87 @@ export const AFFILIATIONS = [
   "CBDE",
 ];
 
-export const NAV = [
-  { label: "Work", href: "#work" },
-  { label: "Projects", href: "#projects" },
-  { label: "Recognition", href: "#recognition" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+/**
+ * Research interests, not a results table.
+ *
+ * Nothing here claims a benchmark, a dataset or a publication — add those
+ * only once they exist, with a number or a link attached.
+ */
+export const RESEARCH = {
+  affiliation: "Spring Lab, IIT Madras",
+  lede: "Speech and language systems for Indian languages, where the data that makes English models work simply does not exist.",
+  areas: [
+    {
+      title: "Multilingual Machine Translation",
+      abbr: "MT",
+      problem:
+        "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
+      threads: ["Low-resource transfer", "Indic language pairs", "Evaluation beyond BLEU"],
+    },
+    {
+      title: "Automatic Speech Recognition",
+      abbr: "ASR",
+      problem:
+        "Recognition degrades on accented, dialectal and code-switched speech — which is how most of India actually speaks.",
+      threads: ["Code-switched speech", "Self-supervised pretraining", "Acoustic modelling"],
+    },
+    {
+      title: "Vision-Language Models",
+      abbr: "VLM",
+      problem:
+        "Grounding language in visual context is still brittle once the image leaves the distribution the model was tuned on.",
+      threads: ["Multimodal grounding", "Instruction tuning", "Document understanding"],
+    },
+  ] satisfies ResearchArea[],
+} as const;
+
+/**
+ * Every section is its own route. `index` drives the numbering shown in
+ * headings, and `blurb` is the one-liner on the home index.
+ */
+export const PAGES = [
+  {
+    index: "01",
+    label: "Work",
+    href: "/work",
+    title: "Work experience",
+    blurb: "Research and engineering roles across IIT Madras, IISc Bangalore and IIT Hyderabad.",
+  },
+  {
+    index: "02",
+    label: "Research",
+    href: "/research",
+    title: "Research interests",
+    blurb: "Multilingual translation, speech recognition and vision-language models for Indian languages.",
+  },
+  {
+    index: "03",
+    label: "Projects",
+    href: "/projects",
+    title: "Selected projects",
+    blurb: "Prototypes and production systems across generative AI, computer vision and IoT.",
+  },
+  {
+    index: "04",
+    label: "Recognition",
+    href: "/recognition",
+    title: "Recognition",
+    blurb: "Five national hackathon wins, a funded build grant and finals placements.",
+  },
+  {
+    index: "05",
+    label: "About",
+    href: "/about",
+    title: "About",
+    blurb: "Background, education and the toolkit I reach for.",
+  },
+  {
+    index: "06",
+    label: "Contact",
+    href: "/contact",
+    title: "Contact",
+    blurb: "Open to roles, research collaborations and consulting.",
+  },
 ] as const;
+
+export type PageMeta = (typeof PAGES)[number];

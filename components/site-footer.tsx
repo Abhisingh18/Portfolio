@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { ArrowUp } from "lucide-react";
-import { PROFILE, SOCIALS, NAV } from "@/content/site";
+import { PROFILE, SOCIALS, PAGES } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -14,14 +15,14 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+            {PAGES.map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
                 className="text-sm text-fg-muted transition-colors hover:text-fg"
               >
-                {item.label}
-              </a>
+                {page.label}
+              </Link>
             ))}
           </nav>
 
@@ -45,13 +46,13 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {PROFILE.name} · Built with Next.js
           </p>
 
-          <a
-            href="#top"
+          <Link
+            href="/"
             className="meta inline-flex items-center gap-1.5 transition-colors hover:text-fg"
           >
-            Back to top
+            Home
             <ArrowUp size={12} aria-hidden="true" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

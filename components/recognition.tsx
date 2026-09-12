@@ -8,7 +8,7 @@ export function Recognition() {
   return (
     <Section id="recognition">
       <SectionHeading
-        index="03"
+        index="04"
         title="Recognition"
         lede="Five national wins, a funded build grant, and finals placements at IIT Delhi and IIT Madras."
       />

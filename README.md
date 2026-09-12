@@ -1,7 +1,7 @@
 # Abhishek Singh — Portfolio
 
 Personal portfolio for an AI/ML engineer. Next.js App Router, TypeScript,
-Tailwind v4. Statically prerendered and deployed on Vercel.
+Tailwind v4. Every section is its own statically prerendered route.
 
 **Live:** https://portfolio-nine-ivory-61.vercel.app
 
@@ -31,7 +31,8 @@ wrong field fails the build rather than the page.
 | `PROJECTS` | Project grid — set `client` to move an entry into Client work |
 | `AWARDS`, `SKILLS`, `EDUCATION` | Their respective sections |
 | `AFFILIATIONS` | The marquee strip under the hero |
-| `NAV` | Header and footer links |
+| `RESEARCH` | Research-interest areas |
+| `PAGES` | The routes — label, URL, section number and home-index blurb |
 
 Keep every number in `STATS` backed by something further down the page.
 
@@ -76,21 +77,34 @@ Then point the project's `video` and `poster` fields at them.
 
 ```
 app/
-  layout.tsx      Fonts, metadata, JSON-LD
-  page.tsx        Section order
-  actions.ts      Contact Server Action
-  globals.css     Design tokens (Tailwind v4 @theme)
-  sitemap.ts      Generated /sitemap.xml
-  robots.ts       Generated /robots.txt
+  layout.tsx        Chrome, fonts, metadata, JSON-LD
+  page.tsx          Home — hero plus the index of routes
+  work/             ┐
+  research/         │
+  projects/         ├ one route per section, each with its own
+  recognition/      │ <title> and description
+  about/            │
+  contact/          ┘
+  actions.ts        Contact Server Action
+  globals.css       Design tokens (Tailwind v4 @theme)
+  sitemap.ts        Generated /sitemap.xml, lists every route
+  robots.ts         Generated /robots.txt
 components/
-  ui/             Section, Reveal, icons
-  *.tsx           One file per page section
-content/site.ts   All page content, typed
+  ui/               Section, Reveal, PageShell, icons
+  *.tsx             One file per section, rendered by its route
+content/site.ts     All page content, typed
 public/
-  images/         Photography and logos
-  media/          Compressed demo videos
-  posters/        Video poster frames
+  images/           Photography and logos
+  media/            Compressed demo videos
+  posters/          Video poster frames
 ```
+
+### Adding a section
+
+Add an entry to `PAGES` in `content/site.ts`, write the component in
+`components/`, then create `app/<slug>/page.tsx` wrapping it in `PageShell`.
+The header, footer, home index, sitemap and prev/next pager all read from
+`PAGES`, so nothing else needs touching.
 
 ## Design notes
 

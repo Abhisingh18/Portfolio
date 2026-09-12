@@ -1,46 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { NAV, PROFILE } from "@/content/site";
+import { PAGES, PROFILE } from "@/content/site";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string>("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Highlight whichever section currently owns the upper part of the screen.
-  useEffect(() => {
-    const ids = NAV.map((n) => n.href.slice(1));
-
-    // Track membership rather than reading each callback's entries alone:
-    // a callback only reports what changed, so the hero (which is not a nav
-    // target) would otherwise leave the last section highlighted for ever.
-    const onScreen = new Set<string>();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) onScreen.add(entry.target.id);
-          else onScreen.delete(entry.target.id);
-        }
-        setActive(ids.find((id) => onScreen.has(id)) ?? "");
-      },
-      { rootMargin: "-20% 0px -70% 0px" },
-    );
-
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -68,30 +43,24 @@ export function SiteHeader() {
         aria-label="Primary"
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10"
       >
-        <a
-          href="#top"
-          className="font-serif text-lg tracking-tight text-fg"
-          aria-label="Back to top"
-        >
+        <Link href="/" className="font-serif text-lg tracking-tight text-fg">
           Abhishek Singh
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 md:flex">
-          {NAV.map((item) => {
-            const isActive = active === item.href.slice(1);
+          {PAGES.map((page) => {
+            const active = pathname === page.href;
             return (
-              <a
-                key={item.href}
-                href={item.href}
-                aria-current={isActive ? "true" : undefined}
+              <Link
+                key={page.href}
+                href={page.href}
+                aria-current={active ? "page" : undefined}
                 className={`rounded-full px-3.5 py-1.5 text-[13px] transition-colors duration-300 ${
-                  isActive
-                    ? "bg-accent-soft text-fg"
-                    : "text-fg-muted hover:text-fg"
+                  active ? "bg-accent-soft text-fg" : "text-fg-muted hover:text-fg"
                 }`}
               >
-                {item.label}
-              </a>
+                {page.label}
+              </Link>
             );
           })}
 
@@ -120,16 +89,21 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-line bg-ink md:hidden">
           <div className="flex flex-col px-6 py-4">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+            {PAGES.map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-line py-4 text-base text-fg-muted transition-colors hover:text-fg"
+                aria-current={pathname === page.href ? "page" : undefined}
+                className={`flex items-baseline gap-3 border-b border-line py-4 text-base transition-colors ${
+                  pathname === page.href ? "text-fg" : "text-fg-muted hover:text-fg"
+                }`}
               >
-                {item.label}
-              </a>
+                <span className="meta">{page.index}</span>
+                {page.label}
+              </Link>
             ))}
+
             <a
               href={PROFILE.resume}
               target="_blank"

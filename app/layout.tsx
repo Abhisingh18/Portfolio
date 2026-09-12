@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SITE, PROFILE, SOCIALS, EDUCATION } from "@/content/site";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -117,7 +119,17 @@ export default function RootLayout({
           // Static, author-controlled object — not user input.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-fg focus:px-4 focus:py-2 focus:text-ink"
+        >
+          Skip to content
+        </a>
+
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
