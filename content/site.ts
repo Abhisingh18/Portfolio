@@ -384,22 +384,13 @@ export const PAGES = [
     index: "02",
     label: "Research",
     href: "/research",
-    title: "Research & development",
+    title: "Research & projects",
     description:
-      "Multilingual machine translation, speech recognition and vision-language models for Indian languages, plus retrieval, agent and full-stack engineering.",
-    blurb: "Multilingual translation, speech recognition and vision-language models — plus the RAG, agent and full-stack work I build.",
+      "Multilingual machine translation, speech recognition and vision-language models for Indian languages — and the projects built on them.",
+    blurb: "Multilingual translation, speech recognition and vision-language models — and the RAG, agent and full-stack systems I have built."
   },
   {
     index: "03",
-    label: "Projects",
-    href: "/projects",
-    title: "Selected projects",
-    description:
-      "Prototypes and production systems across generative AI, computer vision, retrieval and IoT — with live demos and source.",
-    blurb: "Prototypes and production systems across generative AI, computer vision and IoT.",
-  },
-  {
-    index: "04",
     label: "Recognition",
     href: "/recognition",
     title: "Recognition",
@@ -408,7 +399,7 @@ export const PAGES = [
     blurb: "Five national hackathon wins, a funded build grant and finals placements.",
   },
   {
-    index: "05",
+    index: "04",
     label: "About",
     href: "/about",
     title: "About",
@@ -417,7 +408,7 @@ export const PAGES = [
     blurb: "Background, education and the toolkit I reach for.",
   },
   {
-    index: "06",
+    index: "05",
     label: "Contact",
     href: "/contact",
     title: "Contact",

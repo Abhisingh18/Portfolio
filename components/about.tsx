@@ -5,7 +5,7 @@ import { Reveal } from "./ui/reveal";
 export function About() {
   return (
     <Section id="about">
-      <SectionHeading index="05" title="About" accent="me" />
+      <SectionHeading index="04" title="About" accent="me" />
 
       <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
         <Reveal>

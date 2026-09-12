@@ -1,6 +1,7 @@
 import { RND } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
+import { Projects } from "./projects";
 
 /** The six focus areas. Reused on the home page and on /research. */
 export function FocusGrid() {
@@ -59,5 +60,15 @@ export function Research() {
 
       <FocusGrid />
     </Section>
+  );
+}
+
+/** The /research route: what I work on, then what came out of it. */
+export function ResearchAndProjects() {
+  return (
+    <>
+      <Research />
+      <Projects index="02 ·" />
+    </>
   );
 }

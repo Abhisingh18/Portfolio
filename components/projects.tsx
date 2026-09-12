@@ -190,10 +190,10 @@ export function Projects({
       {showAll && (
         <Reveal className="mt-12">
           <Link
-            href="/projects"
+            href="/research"
             className="link-underline inline-flex items-center gap-2 text-sm text-fg"
           >
-            All projects
+            All research & projects
             <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
         </Reveal>

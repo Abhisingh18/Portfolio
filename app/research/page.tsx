@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Research } from "@/components/research";
+import { ResearchAndProjects } from "@/components/research";
 import { PageShell } from "@/components/ui/page-shell";
 import { PAGES } from "@/content/site";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ResearchPage() {
   return (
     <PageShell href="/research">
-      <Research />
+      <ResearchAndProjects />
     </PageShell>
   );
 }

@@ -7,7 +7,7 @@ import { Reveal } from "./ui/reveal";
 
 export function Recognition({
   limit,
-  index = "04",
+  index = "03",
   showAll = false,
 }: {
   limit?: number;

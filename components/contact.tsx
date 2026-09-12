@@ -61,7 +61,7 @@ export function Contact() {
   return (
     <Section id="contact">
       <SectionHeading
-        index="06"
+        index="05"
         title="Let's"
         accent="work together"
         lede="Open to AI/ML roles, research collaborations and consulting. I reply to everything."
