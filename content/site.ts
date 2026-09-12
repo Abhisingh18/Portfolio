@@ -294,6 +294,8 @@ export type FocusArea = {
   title: string[];
   abbr?: string;
   body: string;
+  /** The actual tools. Development cards carry these; research cards do not. */
+  stack?: string[];
 };
 
 /**
@@ -341,21 +343,25 @@ export const RND = {
       no: "01",
       title: ["Web", "& Apps"],
       body: "The product around the model — Next.js and React on the web, React Native on mobile, built to stay quick on the devices people actually own.",
+      stack: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS"],
     },
     {
       no: "02",
       title: ["Backend", "& APIs"],
       body: "FastAPI and Node services that put model inference behind a stable contract, with the queuing, timeouts and error handling production asks for.",
+      stack: ["FastAPI", "Node.js", "Python", "REST APIs", "MongoDB", "MySQL"],
     },
     {
       no: "03",
       title: ["RAG", "Applications"],
       body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
+      stack: ["LangChain", "FAISS", "Hugging Face", "Groq", "Ollama"],
     },
     {
       no: "04",
       title: ["Deployment", "& Infra"],
       body: "Docker, CI/CD and the hosting that keeps it all up — Vercel, Render, Azure — including the cold starts and timeouts nobody demos.",
+      stack: ["Docker", "CI/CD", "Vercel", "Render", "Azure", "Git"],
     },
   ] satisfies FocusArea[],
 } as const;

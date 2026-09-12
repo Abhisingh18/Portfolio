@@ -28,6 +28,16 @@ export function FocusGrid({ areas }: { areas: readonly FocusArea[] }) {
             <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-fg-muted">
               {area.body}
             </p>
+
+            {area.stack && (
+              <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-5">
+                {area.stack.map((tool) => (
+                  <span key={tool} className="tag">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </Reveal>
       ))}
