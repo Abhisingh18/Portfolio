@@ -65,7 +65,7 @@ export const SITE = {
   name: "Abhishek Singh",
   role: "AI/ML Engineer",
   description:
-    "AI/ML engineer building production intelligent systems. Quantum ML at IISc Bangalore, computer vision at IIT Hyderabad, currently Project Staff at Spring Lab, IIT Madras.",
+    "AI/ML engineer building production intelligent systems. Quantum ML at IISc Bangalore, computer vision at IIT Hyderabad, currently Project Staff Researcher at Spring Lab, IIT Madras.",
 } as const;
 
 export const PROFILE = {
@@ -120,7 +120,7 @@ export const EDUCATION = {
 
 export const ROLES: Role[] = [
   {
-    title: "Project Staff",
+    title: "Project Staff Researcher",
     org: "Spring Lab, IIT Madras",
     logos: ["/images/logo-iitm.png"],
     cover: "/images/spring-lab-iitm.jpg",
@@ -370,7 +370,7 @@ export const RND = {
 export const NEWS = [
   {
     date: "May 2026",
-    body: "Joined Spring Lab, IIT Madras as Project Staff, working on speech and language for Indian languages.",
+    body: "Joined Spring Lab, IIT Madras as Project Staff Researcher, working on speech and language for Indian languages.",
   },
   {
     date: "Nov 2025",
