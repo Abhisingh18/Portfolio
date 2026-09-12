@@ -336,7 +336,7 @@ export const RND = {
     },
     {
       no: "05",
-      title: ["AI", "Agents"],
+      title: ["LLM", "Agents"],
       body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
       kind: "engineering",
     },
