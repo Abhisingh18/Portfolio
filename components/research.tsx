@@ -23,9 +23,14 @@ export function FocusGrid() {
             </div>
 
             <h3 className="mt-6 font-serif text-2xl leading-tight text-fg md:text-[1.75rem]">
-              {area.title[0]}
-              <br />
-              <span className="text-fg-muted">{area.title[1]}</span>
+              {area.title.map((line, n) => (
+                <span
+                  key={line}
+                  className={`block ${n > 0 ? "text-fg-muted" : ""}`}
+                >
+                  {line}
+                </span>
+              ))}
             </h3>
 
             <p className="mt-4 text-[14px] leading-relaxed text-fg-muted">

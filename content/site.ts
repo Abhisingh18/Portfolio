@@ -330,13 +330,13 @@ export const RND = {
     },
     {
       no: "04",
-      title: ["Retrieval", "& RAG"],
+      title: ["RAG", "Applications"],
       body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
       kind: "engineering",
     },
     {
       no: "05",
-      title: ["LLM", "Agents"],
+      title: ["LLM"],
       body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
       kind: "engineering",
     },
