@@ -310,35 +310,35 @@ export const RND = {
   areas: [
     {
       no: "01",
-      title: ["Multilingual", "Translation"],
-      abbr: "MT",
-      body: "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
-      kind: "research",
-    },
-    {
-      no: "02",
       title: ["Speech", "Recognition"],
       abbr: "ASR",
       body: "Recognition degrades on accented, dialectal and code-switched speech — which is how most of India actually speaks.",
       kind: "research",
     },
     {
+      no: "02",
+      title: ["Multilingual", "Translation"],
+      abbr: "MT",
+      body: "Translation quality collapses without large parallel corpora, and India's 22 scheduled languages sit almost entirely in that low-resource regime.",
+      kind: "research",
+    },
+    {
       no: "03",
+      title: ["LLM"],
+      body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
+      kind: "engineering",
+    },
+    {
+      no: "04",
       title: ["Vision-Language", "Models"],
       abbr: "VLM",
       body: "Grounding language in visual context stays brittle once an image leaves the distribution the model was tuned on.",
       kind: "research",
     },
     {
-      no: "04",
+      no: "05",
       title: ["RAG", "Applications"],
       body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
-      kind: "engineering",
-    },
-    {
-      no: "05",
-      title: ["LLM"],
-      body: "Agents that carry a workflow end to end: tool use, model routing across providers, and guardrails that fail loudly rather than quietly.",
       kind: "engineering",
     },
     {
