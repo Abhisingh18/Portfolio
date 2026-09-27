@@ -1,4 +1,4 @@
-import { EDUCATION, SKILLS } from "@/content/site";
+import { EDUCATION, LANGUAGES, SKILLS } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
 
@@ -44,6 +44,17 @@ export function About() {
               <span aria-hidden="true">·</span>
               <span className="text-accent">{EDUCATION.grade}</span>
             </p>
+          </div>
+
+          <div className="panel mt-6 p-6">
+            <p className="meta">Languages</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {LANGUAGES.map((language) => (
+                <span key={language} className="tag">
+                  {language}
+                </span>
+              ))}
+            </div>
           </div>
         </Reveal>
 

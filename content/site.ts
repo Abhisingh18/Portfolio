@@ -115,6 +115,9 @@ export const STATS: Stat[] = [
   { value: "8.1", label: "CGPA" },
 ];
 
+/** Spoken languages. Shown on the About page, beside the education panel. */
+export const LANGUAGES = ["Hindi", "English", "Bhojpuri"] as const;
+
 export const EDUCATION = {
   degree: "B.Tech, Information Technology",
   school: "Central University of Chhattisgarh",
@@ -328,7 +331,7 @@ export const AWARDS: Award[] = [
 
 export const SKILLS: SkillGroup[] = [
   {
-    label: "Languages",
+    label: "Programming",
     items: ["Python", "TypeScript", "SQL", "DSA", "OOP"],
   },
   {
