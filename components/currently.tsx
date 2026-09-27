@@ -9,7 +9,8 @@ import { Reveal } from "./ui/reveal";
  * earlier ones compressed to a line each.
  */
 export function Currently() {
-  const [current, ...previous] = ROLES;
+  const current = ROLES.filter((role) => role.current);
+  const previous = ROLES.filter((role) => !role.current);
 
   return (
     <section className="border-y border-line">
@@ -17,23 +18,27 @@ export function Currently() {
         <Reveal>
           <p className="meta">Currently</p>
 
-          <div className="mt-5 flex items-start gap-4">
-            {current.logos[0] && (
-              <Image
-                src={current.logos[0]}
-                alt=""
-                width={44}
-                height={44}
-                className="h-11 w-11 shrink-0 rounded-full border border-line-strong bg-white/5 object-cover"
-              />
-            )}
-            <div className="min-w-0">
-              <h2 className="font-serif text-2xl leading-tight text-fg">
-                {current.title}
-              </h2>
-              <p className="mt-1.5 text-sm text-accent">{current.org}</p>
-              <p className="meta mt-3">{current.period}</p>
-            </div>
+          <div className="mt-5 space-y-6">
+            {current.map((role) => (
+              <div key={role.org} className="flex items-start gap-4">
+                {role.logos[0] && (
+                  <Image
+                    src={role.logos[0]}
+                    alt=""
+                    width={44}
+                    height={44}
+                    className="h-11 w-11 shrink-0 rounded-full border border-line-strong bg-white/5 object-cover"
+                  />
+                )}
+                <div className="min-w-0">
+                  <h2 className="font-serif text-2xl leading-tight text-fg">
+                    {role.title}
+                  </h2>
+                  <p className="mt-1.5 text-sm text-accent">{role.org}</p>
+                  <p className="meta mt-3">{role.period}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </Reveal>
 
