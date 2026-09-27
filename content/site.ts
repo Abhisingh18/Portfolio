@@ -184,9 +184,10 @@ export const ROLES: Role[] = [
     cover: "/images/chegg.jpg",
     period: "Dec 2022 — Mar 2024 · Remote",
     points: [
-      "Answered and explained student questions on Chegg's academic Q&A platform as a verified subject matter expert, over roughly 1.3 years.",
+      "Tutored students on Chegg's Q&A platform, taking coding and data-science questions from the problem statement through to a worked solution with the reasoning spelled out.",
+      "Held the expert role for roughly 1.3 years, alongside the degree.",
     ],
-    stack: [],
+    stack: ["Coding", "Data Science"],
   },
 ];
 
