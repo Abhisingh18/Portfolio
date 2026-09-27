@@ -65,7 +65,7 @@ export const SITE = {
   name: "Abhishek Singh",
   role: "AI/ML Engineer",
   description:
-    "AI/ML engineer building production intelligent systems. Quantum ML at IISc Bangalore, computer vision at IIT Hyderabad, currently Project Staff Researcher at Spring Lab, IIT Madras.",
+    "AI/ML engineer building production intelligent systems. Quantum ML at IISc Bangalore, computer vision at IIT Hyderabad, currently Researcher at Spring Lab, IIT Madras.",
 } as const;
 
 export const PROFILE = {
@@ -100,6 +100,11 @@ export const SOCIALS: Social[] = [
     href: "https://www.geeksforgeeks.org/profile/abhi9648k838?tab=activity",
     handle: "abhi9648k838",
   },
+  {
+    label: "Hugging Face",
+    href: "https://huggingface.co/Abhisingh-18",
+    handle: "Abhisingh-18",
+  },
 ];
 
 /** Each number here is backed by something further down the page. */
@@ -120,7 +125,21 @@ export const EDUCATION = {
 
 export const ROLES: Role[] = [
   {
-    title: "Project Staff Researcher",
+    title: "Founding Engineer",
+    org: "Pragyaan Labs",
+    logos: ["/images/logo-pragyaan.png"],
+    cover: "/images/pragyaan-labs.jpg",
+    period: "Jul 2026 — Present · Remote",
+    current: true,
+    points: [
+      "Engineering studio building production AI systems and custom software — AI agents, SaaS products, APIs and the cloud infrastructure under them.",
+      "Built client platforms end to end across AgriTech, EdTech and retail — Krishaan Agro, GlofiHub, Snapfit AI and UmexTrader.",
+      "Own the work from architecture through deployment and ongoing maintenance, in-house rather than outsourced.",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "FastAPI", "MongoDB", "Docker"],
+  },
+  {
+    title: "Researcher",
     org: "Spring Lab, IIT Madras",
     logos: ["/images/logo-iitm.png"],
     cover: "/images/spring-lab-iitm.jpg",
@@ -163,18 +182,55 @@ export const ROLES: Role[] = [
 
 export const PROJECTS: Project[] = [
   {
-    slug: "crowd-intelligence",
-    title: "Crowd Intelligence OS",
-    category: "Computer Vision",
+    slug: "sutra-1.3b",
+    title: "Sutra-1.3B",
+    category: "LLM Pretraining",
     blurb:
-      "Real-time crowd analytics that tracks pedestrians, estimates flow density, computes dwell times and builds spatial direction matrices — built to hold up at Shibuya-Crossing density.",
-    result: "Real-time density & dwell-time analytics",
-    stack: ["YOLOv8", "FastAPI", "React", "Recharts"],
-    image: null,
-    video: "/media/crowd-intelligence.mp4",
-    poster: "/posters/crowd-intelligence.jpg",
-    repo: "https://github.com/Abhisingh18/Crowd-Intelligence",
-    live: "https://crowd-intelligence-l58l.vercel.app/",
+      "A 1.32B-parameter Mixture-of-Experts language model trained from scratch — 48 experts with 4 active per token, latent attention with rotary encoding, and DPO alignment. Trained on 18B tokens across 4 GPUs in 11 days.",
+    result: "1.32B params, runs at 10 tok/s on CPU",
+    stack: ["PyTorch", "Mixture-of-Experts", "Custom Tokenizer", "DPO"],
+    image: "/images/sutra.jpg",
+    repo: "https://github.com/Abhisingh18/Sutra-1.3B-Model",
+    live: "https://sutra-1-3-b-model-15co.vercel.app/",
+  },
+  {
+    slug: "krishaan-agro",
+    title: "Krishaan Agro",
+    category: "AgriTech Platform",
+    blurb:
+      "An agri-commerce and advisory platform serving 12,000+ farmer families across 45+ districts — product shop with cash-on-delivery, soil-testing reports with crop-specific recommendations, and contract farming with assured buy-back.",
+    result: "12,000+ farmer families, 45+ districts",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "FastAPI", "MongoDB"],
+    image: "/images/krishaan-agro.jpg",
+    repo: null,
+    live: "https://www.krishaanagro.com/",
+    client: "Pragyaan Labs",
+  },
+  {
+    slug: "glofihub",
+    title: "GlofiHub",
+    category: "EdTech Platform",
+    blurb:
+      "An AI-driven platform guiding students toward international education, skill-development courses and global job placement — admissions across 50+ countries, employer connections and institutional partnerships.",
+    result: "Built end to end, live in production",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "FastAPI", "MongoDB"],
+    image: "/images/glofihub.jpg",
+    repo: null,
+    live: "https://www.glofihub.com/",
+    client: "Pragyaan Labs",
+  },
+  {
+    slug: "snapfit-ai",
+    title: "Snapfit AI",
+    category: "AI Mobile App",
+    blurb:
+      "An AI virtual try-on app for garment stores — shoppers see how a piece looks on them before they buy. Built for Android and shipped to the Google Play Store.",
+    result: "Live on the Google Play Store",
+    stack: ["React Native", "Android", "Computer Vision", "GenAI"],
+    image: "/images/snapfit-ai.jpg",
+    repo: null,
+    live: null,
+    client: "Pragyaan Labs",
   },
   {
     slug: "vertical-ai",
@@ -203,6 +259,18 @@ export const PROJECTS: Project[] = [
     live: "https://sih-2025-16aj.vercel.app/",
   },
   {
+    slug: "prashikshak",
+    title: "Prashikshak",
+    category: "GovTech Platform",
+    blurb:
+      "A disaster-management training platform for the national response ecosystem — live monitoring of exercises across states, data-backed scoring and feedback, and integrated reporting from NDMA, SDMAs and NGOs.",
+    result: "Smart India Hackathon — NDMA problem statement",
+    stack: ["React", "Vite", "Tailwind CSS", "TypeScript"],
+    image: "/images/prashikshak.jpg",
+    repo: "https://huggingface.co/spaces/Abhisingh-18/prashikshak-website",
+    live: "https://abhisingh-18-prashikshak-website.static.hf.space/",
+  },
+  {
     slug: "vidya-ai",
     title: "Vidya AI",
     category: "EdTech AI",
@@ -215,6 +283,20 @@ export const PROJECTS: Project[] = [
     // The Vercel deployment sits behind deployment protection, so a public
     // link would only show visitors a login wall.
     live: null,
+  },
+  {
+    slug: "crowd-intelligence",
+    title: "Crowd Intelligence OS",
+    category: "Computer Vision",
+    blurb:
+      "Real-time crowd analytics that tracks pedestrians, estimates flow density, computes dwell times and builds spatial direction matrices — built to hold up at Shibuya-Crossing density.",
+    result: "Real-time density & dwell-time analytics",
+    stack: ["YOLOv8", "FastAPI", "React", "Recharts"],
+    image: null,
+    video: "/media/crowd-intelligence.mp4",
+    poster: "/posters/crowd-intelligence.jpg",
+    repo: "https://github.com/Abhisingh18/Crowd-Intelligence",
+    live: "https://crowd-intelligence-l58l.vercel.app/",
   },
 ];
 
@@ -340,25 +422,25 @@ export const RND = {
   /** What I build and ship. */
   development: [
     {
-      no: "01",
+      no: "05",
       title: ["Web", "& Apps"],
       body: "The product around the model — Next.js and React on the web, React Native on mobile, built to stay quick on the devices people actually own.",
       stack: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS"],
     },
     {
-      no: "02",
+      no: "06",
       title: ["Backend", "& APIs"],
       body: "FastAPI and Node services that put model inference behind a stable contract, with the queuing, timeouts and error handling production asks for.",
       stack: ["FastAPI", "Node.js", "Python", "REST APIs", "MongoDB", "MySQL"],
     },
     {
-      no: "03",
+      no: "07",
       title: ["RAG", "Applications"],
       body: "Retrieval pipelines where every answer carries its source — FAISS and vector search, citation-grounded generation, evaluation that catches drift.",
       stack: ["LangChain", "FAISS", "Hugging Face", "Groq", "Ollama"],
     },
     {
-      no: "04",
+      no: "08",
       title: ["Deployment", "& Infra"],
       body: "Docker, CI/CD and the hosting that keeps it all up — Vercel, Render, Azure — including the cold starts and timeouts nobody demos.",
       stack: ["Docker", "CI/CD", "Vercel", "Render", "Azure", "Git"],
@@ -370,7 +452,7 @@ export const RND = {
 export const NEWS = [
   {
     date: "May 2026",
-    body: "Joined Spring Lab, IIT Madras as Project Staff Researcher, working on speech and language for Indian languages.",
+    body: "Joined Spring Lab, IIT Madras as Researcher, working on speech and language for Indian languages.",
   },
   {
     date: "Nov 2025",
