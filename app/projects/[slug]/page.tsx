@@ -7,6 +7,12 @@ import { PROJECTS } from "@/content/site";
 import { PROJECT_DETAILS } from "@/content/project-details";
 import { Reveal } from "@/components/ui/reveal";
 import { GitHubMark } from "@/components/ui/icons";
+import { SutraArchitecture } from "@/components/diagrams/sutra-flow";
+
+/** Projects whose architecture is worth drawing rather than describing. */
+const DIAGRAMS: Record<string, () => React.ReactElement> = {
+  "sutra-1.3b": SutraArchitecture,
+};
 
 /** Every project is known at build time, so nothing is rendered on demand. */
 export const dynamicParams = false;
@@ -44,6 +50,7 @@ export default async function ProjectPage({
   const project = PROJECTS[index];
   const detail = PROJECT_DETAILS[slug];
   const next = PROJECTS[(index + 1) % PROJECTS.length];
+  const Diagram = DIAGRAMS[slug];
 
   return (
     <main id="main" className="pt-16">
@@ -137,6 +144,19 @@ export default async function ProjectPage({
                 </div>
               ))}
             </dl>
+          </Reveal>
+        )}
+
+        {Diagram && (
+          <Reveal>
+            <section className="mt-20">
+              <h2 className="font-serif text-2xl text-fg md:text-3xl">
+                How it is put together
+              </h2>
+              <div className="mt-8">
+                <Diagram />
+              </div>
+            </section>
           </Reveal>
         )}
 
