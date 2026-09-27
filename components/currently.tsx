@@ -44,11 +44,22 @@ export function Currently() {
 
           <ul className="mt-5 space-y-4">
             {previous.map((role) => (
-              <li key={role.org}>
-                <p className="text-[15px] text-fg">{role.title}</p>
-                <p className="mt-1 text-[13px] text-fg-muted">
-                  {role.org} · {role.period}
-                </p>
+              <li key={role.org} className="flex items-start gap-3">
+                {role.logos[0] && (
+                  <Image
+                    src={role.logos[0]}
+                    alt=""
+                    width={26}
+                    height={26}
+                    className="mt-0.5 h-[26px] w-[26px] shrink-0 rounded-full border border-line-strong bg-white/5 object-cover"
+                  />
+                )}
+                <div className="min-w-0">
+                  <p className="text-[15px] text-fg">{role.title}</p>
+                  <p className="mt-1 text-[13px] text-fg-muted">
+                    {role.org} · {role.period}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>
