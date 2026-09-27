@@ -28,7 +28,7 @@ function ProjectCard({
 
   return (
     <Reveal as="article" delay={index * 70} className="group">
-      <div className="panel flex h-full flex-col overflow-hidden transition-colors duration-500 hover:border-line-strong">
+      <div className="panel relative flex h-full flex-col overflow-hidden transition-colors duration-500 hover:border-line-strong">
         <div className="relative aspect-square w-full overflow-hidden bg-ink-sunken">
           {preview && (
             <Image
@@ -55,7 +55,7 @@ function ProjectCard({
               type="button"
               onClick={() => onPlay(project)}
               aria-label={`Play ${project.title} demo`}
-              className="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 focus-visible:opacity-100"
+              className="absolute inset-0 z-10 grid place-items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 focus-visible:opacity-100"
             >
               <span className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-ink/70 backdrop-blur-sm">
                 <Play size={14} className="ml-0.5 fill-fg text-fg" aria-hidden="true" />
@@ -65,8 +65,15 @@ function ProjectCard({
         </div>
 
         <div className="flex flex-1 flex-col p-4">
+          {/* The overlay makes the whole tile clickable while keeping the
+              title as the link's accessible name. */}
           <h3 className="font-serif text-lg leading-tight text-fg">
-            {project.title}
+            <Link
+              href={`/projects/${project.slug}`}
+              className="transition-colors duration-300 after:absolute after:inset-0 hover:text-accent"
+            >
+              {project.title}
+            </Link>
           </h3>
 
           <p className="mt-2 line-clamp-2 text-[12.5px] leading-relaxed text-fg-muted">
@@ -90,7 +97,7 @@ function ProjectCard({
             )}
           </div>
 
-          <div className="mt-auto flex items-center gap-3 border-t border-line pt-3.5 text-[11.5px]">
+          <div className="relative z-10 mt-auto flex items-center gap-3 border-t border-line pt-3.5 text-[11.5px]">
             {project.repo && (
               <a
                 href={project.repo}
