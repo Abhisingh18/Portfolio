@@ -182,7 +182,7 @@ export const ROLES: Role[] = [
     org: "Chegg India",
     logos: ["/images/logo-chegg.png"],
     cover: "/images/chegg.jpg",
-    period: "Dec 2022 — Mar 2024",
+    period: "Dec 2022 — Mar 2024 · Remote",
     points: [
       "Answered and explained student questions on Chegg's academic Q&A platform as a verified subject matter expert, over roughly 1.3 years.",
     ],
