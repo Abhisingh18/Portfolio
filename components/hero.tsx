@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { PROFILE, STATS, SOCIALS, AFFILIATIONS } from "@/content/site";
+import { PROFILE, SOCIALS, AFFILIATIONS } from "@/content/site";
 import { Reveal } from "./ui/reveal";
 import { FocusRotator } from "./focus-rotator";
 import { HeroPhotos } from "./hero-photos";
@@ -73,20 +73,6 @@ export function Hero() {
             >
               Résumé
             </a>
-
-            <span className="mx-1 hidden h-4 w-px bg-line sm:block" aria-hidden="true" />
-
-            {SOCIALS.slice(0, 2).map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline text-sm text-fg-muted transition-colors hover:text-fg"
-              >
-                {s.label}
-              </a>
-            ))}
           </div>
         </Reveal>
 
@@ -98,18 +84,34 @@ export function Hero() {
         </div>
 
         <Reveal delay={320}>
-          <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-4">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="bg-ink px-5 py-6">
-                <dd className="font-serif text-3xl text-fg md:text-4xl">
-                  {stat.value}
-                </dd>
-                <dt className="meta mt-2 normal-case tracking-normal">
-                  {stat.label}
-                </dt>
-              </div>
+          <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-line bg-line md:grid-cols-5">
+            {SOCIALS.map((social, i) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                // An odd count leaves a hole in the two-column layout.
+                className={`group bg-ink px-5 py-6 transition-colors duration-300 hover:bg-white/[0.03] ${
+                  SOCIALS.length % 2 === 1 && i === SOCIALS.length - 1
+                    ? "max-md:col-span-2"
+                    : ""
+                }`}
+              >
+                <p className="flex items-center gap-1.5 font-serif text-xl text-fg md:text-2xl">
+                  {social.label}
+                  <ArrowUpRight
+                    size={14}
+                    aria-hidden="true"
+                    className="text-fg-faint transition-colors duration-300 group-hover:text-accent"
+                  />
+                </p>
+                <p className="meta mt-2 normal-case tracking-normal">
+                  {social.handle}
+                </p>
+              </a>
             ))}
-          </dl>
+          </div>
         </Reveal>
       </div>
 

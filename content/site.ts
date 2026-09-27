@@ -9,11 +9,6 @@ export type Social = {
   handle: string;
 };
 
-export type Stat = {
-  value: string;
-  label: string;
-};
-
 export type Role = {
   title: string;
   org: string;
@@ -105,14 +100,6 @@ export const SOCIALS: Social[] = [
     href: "https://huggingface.co/Abhisingh-18",
     handle: "Abhisingh-18",
   },
-];
-
-/** Each number here is backed by something further down the page. */
-export const STATS: Stat[] = [
-  { value: "73%", label: "MSE cut vs. baseline" },
-  { value: "3", label: "IIT / IISc research roles" },
-  { value: "5", label: "National hackathon wins" },
-  { value: "8.1", label: "CGPA" },
 ];
 
 /** Spoken languages. Shown on the About page, beside the education panel. */
