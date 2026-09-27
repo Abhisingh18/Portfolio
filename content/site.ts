@@ -168,6 +168,26 @@ export const ROLES: Role[] = [
     ],
     stack: ["OpenCV", "ROS", "Sensor Fusion"],
   },
+  {
+    title: "Research Intern",
+    org: "NIT Rourkela",
+    logos: ["/images/logo-nitrkl.png"],
+    cover: "/images/nit-rourkela.jpg",
+    period: "May 2024 — Jun 2024",
+    points: ["Worked in chemical engineering research."],
+    stack: [],
+  },
+  {
+    title: "Subject Matter Expert",
+    org: "Chegg India",
+    logos: ["/images/logo-chegg.png"],
+    cover: "/images/chegg.jpg",
+    period: "Dec 2022 — Mar 2024",
+    points: [
+      "Answered and explained student questions on Chegg's academic Q&A platform as a verified subject matter expert, over roughly 1.3 years.",
+    ],
+    stack: [],
+  },
 ];
 
 export const PROJECTS: Project[] = [
@@ -483,8 +503,8 @@ export const PAGES = [
     href: "/work",
     title: "Work experience",
     description:
-      "Research and engineering roles at Spring Lab IIT Madras, IISc Bangalore and IIT Hyderabad — including Delta-GRU forecasting and autonomous-driving perception.",
-    blurb: "Research and engineering roles across IIT Madras, IISc Bangalore and IIT Hyderabad.",
+      "Founding engineer at Pragyaan Labs, with research roles at Spring Lab IIT Madras, IISc Bangalore, IIT Hyderabad and NIT Rourkela — including Delta-GRU forecasting and autonomous-driving perception.",
+    blurb: "Engineering at Pragyaan Labs and research across IIT Madras, IISc Bangalore and IIT Hyderabad.",
   },
   {
     index: "02",

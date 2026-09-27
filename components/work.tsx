@@ -10,7 +10,7 @@ export function Work() {
         index="01"
         title="Work"
         accent="experience"
-        lede="Research and engineering roles across IIT Madras, IISc Bangalore and IIT Hyderabad."
+        lede="Engineering at Pragyaan Labs alongside research roles across IIT Madras, IISc Bangalore, IIT Hyderabad and NIT Rourkela."
       />
 
       <ol className="border-t border-line">
