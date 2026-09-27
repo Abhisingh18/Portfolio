@@ -346,16 +346,34 @@ export const SKILLS: SkillGroup[] = [
     ],
   },
   {
+    label: "Model Training",
+    items: [
+      "Transformers",
+      "Pretraining",
+      "Fine-tuning",
+      "Post-training",
+      "RLHF",
+      "PPO",
+      "DPO",
+      "GRPO",
+    ],
+  },
+  {
     label: "GenAI & Retrieval",
-    items: ["LangChain", "FAISS", "Hugging Face", "Groq", "Ollama"],
+    items: [
+      "RAG",
+      "Agents",
+      "VLMs",
+      "LangChain",
+      "FAISS",
+      "Hugging Face",
+      "Groq",
+      "Ollama",
+    ],
   },
   {
     label: "Backend & Web",
     items: ["FastAPI", "Next.js", "React", "Node.js", "REST APIs"],
-  },
-  {
-    label: "Data",
-    items: ["Pandas", "NumPy", "Matplotlib", "MongoDB", "MySQL"],
   },
   {
     label: "Infrastructure",
