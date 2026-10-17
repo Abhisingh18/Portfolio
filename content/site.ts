@@ -490,8 +490,8 @@ export const PAGES = [
     href: "/work",
     title: "Work experience",
     description:
-      "Founding engineer at Pragyaan Labs, with research roles at Spring Lab IIT Madras, IISc Bangalore, IIT Hyderabad and NIT Rourkela — including Delta-GRU forecasting and autonomous-driving perception.",
-    blurb: "Engineering at Pragyaan Labs and research across IIT Madras, IISc Bangalore and IIT Hyderabad.",
+      "Research roles at Spring Lab IIT Madras, IISc Bangalore, IIT Hyderabad and NIT Rourkela — including Delta-GRU forecasting and autonomous-driving perception.",
+    blurb: "Research across IIT Madras, IISc Bangalore and IIT Hyderabad.",
   },
   {
     index: "02",
