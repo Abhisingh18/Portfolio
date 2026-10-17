@@ -115,20 +115,6 @@ export const EDUCATION = {
 
 export const ROLES: Role[] = [
   {
-    title: "Founding Engineer",
-    org: "Pragyaan Labs",
-    logos: ["/images/logo-pragyaan.png"],
-    cover: "/images/pragyaan-labs.jpg",
-    period: "Jul 2026 — Present · Remote",
-    current: true,
-    points: [
-      "Engineering studio building production AI systems and custom software — AI agents, SaaS products, APIs and the cloud infrastructure under them.",
-      "Built client platforms end to end across AgriTech, EdTech and retail — Krishaan Agro, GlofiHub, Snapfit AI and UmexTrader.",
-      "Own the work from architecture through deployment and ongoing maintenance, in-house rather than outsourced.",
-    ],
-    stack: ["Next.js", "React", "TypeScript", "FastAPI", "MongoDB", "Docker"],
-  },
-  {
     title: "Researcher",
     org: "Spring Lab, IIT Madras",
     logos: ["/images/logo-iitm.png"],
