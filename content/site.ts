@@ -47,6 +47,15 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type Publication = {
+  title: string;
+  authors: string[];
+  venue: string;
+  date: string;
+  status: "Under review" | "Preprint" | "Published";
+  href?: string;
+};
+
 export type ResearchArea = {
   title: string;
   abbr?: string;
@@ -462,6 +471,41 @@ export const RND = {
     },
   ] satisfies FocusArea[],
 } as const;
+
+/** Papers, newest first. `status` is stated as it stands — nothing is claimed as accepted. */
+export const PUBLICATIONS: Publication[] = [
+  {
+    title: "Diagnosing and Mitigating the Intonation Bottleneck in Semantic Audio Tokens",
+    authors: ["Akash Paswan", "Abhishek Singh", "Srinivasan Umesh"],
+    venue: "ACL Rolling Review, October 2026",
+    date: "Oct 2026",
+    status: "Under review",
+  },
+  {
+    title:
+      "Towards Optimal Indic Code-Switching SLAM-ASR: An Empirical Search for the Best Encoder-Decoder Synergy",
+    authors: [
+      "Tomson Laishram",
+      "Akshaya S",
+      "Abhishek Singh",
+      "Mary N. J. M. S.",
+      "Nithya Ravi",
+      "Gokulapriya R",
+      "Srinivasan Umesh",
+    ],
+    venue: "ACL Rolling Review, October 2026",
+    date: "Oct 2026",
+    status: "Under review",
+  },
+  {
+    title:
+      "Quantum-Enhanced Phase-Informed Temporal Learning for Long-Horizon Cloud Workload Forecasting",
+    authors: ["Abhishek Singh"],
+    venue: "OpenReview Archive",
+    date: "Sep 2026",
+    status: "Preprint",
+  },
+];
 
 /** Dated updates for the home page. Newest first; keep these factual. */
 export const NEWS = [
