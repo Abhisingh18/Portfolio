@@ -2,6 +2,7 @@ import { RND, type FocusArea } from "@/content/site";
 import { Section, SectionHeading } from "./ui/section";
 import { Reveal } from "./ui/reveal";
 import { Projects } from "./projects";
+import { Publications } from "./publications";
 
 /** One row of compact cards. Used for both research and development. */
 export function FocusGrid({ areas }: { areas: readonly FocusArea[] }) {
@@ -43,11 +44,11 @@ export function FocusGrid({ areas }: { areas: readonly FocusArea[] }) {
   );
 }
 
-export function Research() {
+export function Research({ index = "02" }: { index?: string } = {}) {
   return (
     <Section id="research">
       <SectionHeading
-        index="02"
+        index={index}
         title="Research"
         accent="& development"
         lede={`${RND.lede} ${RND.developmentLede}`}
@@ -70,12 +71,13 @@ export function Research() {
   );
 }
 
-/** The /research route: interests, what I build, then what came out of it. */
+/** The /research route: papers first, then the projects, then interests and what I build. */
 export function ResearchAndProjects() {
   return (
     <>
-      <Research />
+      <Publications />
       <Projects index="02 ·" />
+      <Research index="02 ·" />
     </>
   );
 }
