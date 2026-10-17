@@ -47,7 +47,7 @@ export function SiteHeader() {
           Abhishek Singh
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {PAGES.map((page) => {
             const active = pathname === page.href;
             return (
@@ -80,14 +80,14 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="p-1.5 text-fg md:hidden"
+          className="p-1.5 text-fg lg:hidden"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
       {open && (
-        <div className="border-t border-line bg-ink md:hidden">
+        <div className="border-t border-line bg-ink lg:hidden">
           <div className="flex flex-col px-6 py-4">
             {PAGES.map((page) => (
               <Link
