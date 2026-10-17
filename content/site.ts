@@ -539,7 +539,7 @@ export const PAGES = [
   },
   {
     index: "02",
-    label: "Research",
+    label: "Research & Publications",
     href: "/research",
     title: "Research & projects",
     description:
