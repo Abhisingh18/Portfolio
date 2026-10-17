@@ -124,7 +124,7 @@ export const EDUCATION = {
 
 export const ROLES: Role[] = [
   {
-    title: "Researcher",
+    title: "Speech LLM Researcher",
     org: "Spring Lab, IIT Madras",
     logos: ["/images/logo-iitm.png"],
     cover: "/images/spring-lab-iitm.jpg",
